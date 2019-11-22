@@ -1,12 +1,12 @@
 const path = require('path')
 const webpackMerge = require('webpack-merge')
-const babelCommonConfig = require('./babel/babelCommonConfig');
-const babelConfig = babelCommonConfig(false);
+const babelCommonConfig = require('./babel/babelCommonConfig')
+const babelConfig = babelCommonConfig(false)
 const WebpackBar = require('webpackbar')
 const dirOutput = path.resolve(__dirname, 'dist')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-babelConfig.plugins.push(require.resolve('babel-plugin-syntax-dynamic-import'));
+babelConfig.plugins.push(require.resolve('babel-plugin-syntax-dynamic-import'))
 const createFiles = () => {
   const path = require('path')
   const glob = require('glob')
@@ -17,9 +17,9 @@ const createFiles = () => {
     let name = file.match(/\w{0,}(?=\.html)/)[0]
     let template = `./src/views/pages/${name}.html`
     let chunks =
-      process.env.NODE_ENV === 'development'
+      process.env.NODE_ENV == 'development'
         ? [name]
-        : [name, 'vendors', 'tools', 'commons']
+        : [name, 'verndor', 'commons']
 
     result.push(
       new HtmlWebpackPlugin({
@@ -92,8 +92,8 @@ module.exports = {
     ...HtmlPlugins,
     new MiniCssExtractPlugin({
       filename: '[name]/[name].[hash].css',
-      publicPath: path.resolve(__dirname, '/dist'),
-      chunkFilename: '[id].[hash].css'
+      // publicPath: path.resolve(__dirname, '/dist'),
+      chunkFilename: '[name]/[id].[hash].css'
     })
   ]
 }
