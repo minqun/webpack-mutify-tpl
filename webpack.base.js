@@ -7,7 +7,6 @@ const dirOutput = path.resolve(__dirname, "dist");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const config = require("./page.config.js");
-console.log(config);
 babelConfig.plugins.push(require.resolve("babel-plugin-syntax-dynamic-import"));
 const createFiles = () => {
   const path = require("path");
@@ -81,6 +80,7 @@ module.exports = {
             ? "style-loader"
             : MiniCssExtractPlugin.loader,
           "css-loader",
+          "postcss-loader",
           "less-loader",
         ],
       },
@@ -121,5 +121,6 @@ module.exports = {
       // publicPath: path.resolve(__dirname, '/dist'),
       chunkFilename: "[name]/[id].[hash].css",
     }),
+    require("autoprefixer"),
   ],
 };
