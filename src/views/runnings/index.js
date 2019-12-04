@@ -4,10 +4,16 @@ import "@source/js/index";
 // import React from 'react'
 // import ReactDom from 'react-dom'
 // ReactDom.render(<h1> Hello, world! </h1>, document.getElementById('root'))
-function getSize() {
-  let deviceW = $("body").width();
-  let deviceWidth = 780;
-  $("html").attr("fontSize", `${deviceW / deviceWidth * 100}px`);
+
+function setFontSize(designWidth, minWidth, maxWidth) {
+    var htmlEl = document.documentElement,
+        momentWith = 0;
+    momentWith =
+        htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+    momentWith = momentWith < minWidth ? minWidth : momentWith;
+    htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
 }
-getSize();
-window.onresize = getSize;
+setFontSize(320, 200, 640);
+window.addEventListener('resize', function() {
+    setFontSize(320, 200, 640);
+});

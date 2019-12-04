@@ -1,57 +1,35 @@
-// import name from "@source/css/test";
-// // 设置大小
-// function getSize() {
-//   let deviceW = $("body").width();
-//   let deviceWidth = 780;
-//   $("html").attr("fontSize", `${deviceW / deviceWidth * 100}px`);
-// }
-// getSize();
-// window.onresize = getSize;
+let array = '6、1、2、7、9、3、4、5、10、8'.split('、');
 
-class Node {
-  constructor(data, left, right) {
-    this.data = data;
-    this.left = left;
-    this.right = right;
-  }
-  show() {
-    console.log(this.data);
-  }
-}
-class tree {
-  constructor() {
-    this.root = null;
-  }
-  insert(data) {
-    var node = new Node(data, null, null);
-    if (!this.root) {
-      this.root = node;
-      return;
+function quicSort(array, box = []) {
+    let compare = Math.min.apply(Math, array);
+    let index = array.indexOf(compare.toString());
+    array.splice(index, 1);
+    box.push(compare)
+    if (!array.length) return box;
+    return quicSort(array, box)
+};
+
+
+function quickSort(array) {
+    if (array.length == 2) {
+        return array;
     }
-    var current = this.root;
-    var parent = null;
-    while (current) {
-      parent = current;
-      if (data > parent.data) {
-        current = current.left;
-        // if (!current) {
-        //   parent.left = node;
-        //   return;
-        // }
-      } else {
-        current = current.right;
-        // if (!current) {
-        //   parent.right = node;
-        //   return;
-        // }
-      }
+    const target = array[0];
+    const left = [];
+    const right = [];
+    const result = [];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < target) {
+            left.push(array[i]);
+        } else {
+            right.push(array[i]);
+        }
     }
-  }
+    while (left.length > 0) {
+
+    }
+
+    return quickSort(left).concat(quickSort(right));
+
 }
-let t = new tree();
-t.insert(4);
-t.insert(2);
-t.insert(3);
-t.insert(1);
-t.insert(5);
-console.log(t);
+// console.log(quickSort(array))

@@ -1,4 +1,4 @@
 module.exports = {
-  mutify: false,
-  page: "test",
+    mutify: true,
+    page: "test",
 };
