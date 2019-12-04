@@ -1,0 +1,110 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    min-width: 320px;
+    
+
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+        min-width: 320px;
+        position: relative;
+        font-size: 14px;
+
+    }
+
+    .root {
+        height: 100%;
+        width: 100%;
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        position: absolute;
+        background: rgba(255, 255, 255, 1);
+        opacity: 0.9;
+        top: 0;
+        left: 0;
+
+        .root-content {
+            height: 100%;
+            box-sizing: border-box;
+            width: 100%;
+            overflow: auto;
+        }
+        .icon {
+            margin: 0.32rem auto 0;
+            display: block;
+            width: 0.8rem;
+            height: 0.5rem;
+        }
+        .desc {
+            text-align: center;
+            margin: 0.09rem auto 0;
+            width: 3rem;
+            height: 0.24rem;
+            font-size: 0.14rem;
+            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+            font-weight: 400;
+            color: rgba(57, 57, 57, 1);
+            line-height: 0.24rem;
+        }
+        
+        .button-group {
+            margin: 0.25rem auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            width: 2.8rem;
+        }
+        
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.18rem;
+            font-family: Roboto-Medium, Roboto;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            width: 1.32rem;
+            height: 0.36rem;
+            background: linear-gradient( 90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
+            border-radius: 0.24rem;
+        }
+        
+        .cancel {
+            border: 1px solid rgba(255, 61, 50, 1);
+            border-radius: 0.24rem;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: rgba(204, 204, 204, 1);
+            background: linear-gradient( 90deg, rgba(255, 129, 50, 1) 0%, rgba(255, 61, 50, 1) 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+     
+
+    }
+
+
+
+    @media all and (orientation : landscape) {
+        .root {
+        }
+    }
+
+    @media all and (orientation : portrait) {
+        .root {
+           
+        }
+    }
+
+}

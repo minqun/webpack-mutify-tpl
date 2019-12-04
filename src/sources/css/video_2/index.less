@@ -1,0 +1,78 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    min-width: 320px;
+    
+
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+        min-width: 320px;
+        position: relative;
+        font-size: 14px;
+
+    }
+
+    .root {
+        height: 100%;
+        width: 100%;
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 1);
+        opacity: 0.9;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .icon {
+            margin: 0.49rem auto 0;
+            display: block;
+            width: 0.68rem;
+            height: 0.68rem;
+        }
+        
+        .desc {
+            text-align: center;
+            margin: 0.14rem auto 0;
+            width: 3rem;
+            height: 0.24rem;
+            font-size: 0.14rem;
+            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+            font-weight: 400;
+            color: rgba(57, 57, 57, 1);
+            line-height: 0.24rem;
+        }
+
+        .root-content {
+            height: 100%;
+            box-sizing: border-box;
+            width: 100%;
+            overflow: auto;
+        }
+
+        
+
+    }
+
+
+
+    @media all and (orientation : landscape) {
+        .root {
+           
+        }
+    }
+
+    @media all and (orientation : portrait) {
+        .root {
+           
+        }
+    }
+
+}

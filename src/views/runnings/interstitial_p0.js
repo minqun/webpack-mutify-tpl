@@ -1,0 +1,1 @@
+import name from "@source/css/interstitial_p0";

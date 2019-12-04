@@ -1,0 +1,106 @@
+html {
+    height    : 100%;
+    width     : 100%;
+    margin    : 0;
+    box-sizing: border-box;
+    padding   : 0;
+    min-width : 320px;
+
+
+    body {
+        height    : 100%;
+        width     : 100%;
+        margin    : 0;
+        box-sizing: border-box;
+        padding   : 0;
+        min-width : 320px;
+        position  : relative;
+        font-size: 14px;
+      
+    }
+
+    .root {
+        height             : 100%;
+        width              : 100%;
+        background-size    : 100%;
+        background-position: 50% 50%;
+        background-repeat  : no-repeat;
+        background: rgba(255, 255, 255, 1);
+        opacity: 0.9;
+        box-sizing         : border-box;
+        position           : absolute;
+        top                : 0;
+        left               : 0;
+
+        .root-content {
+            height    : 100%;
+            box-sizing: border-box;
+            width     : 100%;
+            overflow  : auto;
+        }
+        .icon {
+            width     : 0.68rem;
+            display: block;
+            margin: 0.32rem auto 0;
+            height    : 0.68rem;
+        }
+
+        .title {
+            width      : 2.8rem;
+            overflow   : hidden;
+            margin: 0.12rem auto 0;
+            text-align : center;
+            height     : 0.22rem;
+            font-size  : 0.18rem;
+            line-height: 0.22rem;
+            font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+            font-weight: bold;
+            color      : rgba(57, 57, 57, 1);
+        }
+
+        .desc {
+            text-align : center;
+            margin: 0.08rem auto 0;
+            width      : 2.8rem;
+            height     : 0.48rem;
+            font-size  : 0.13rem;
+            font-weight: 400;
+            color      : rgba(122, 122, 122, 1);
+            line-height: 0.22rem;
+            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+        }
+
+        .desc {
+            div {
+                display           : -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow          : hidden;
+            }
+        }
+
+        .button {
+            margin    : 0.32rem auto 0;
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+            font-size      : 0.18rem;
+            font-family    : Roboto-Medium, Roboto;
+            font-weight    : 500;
+            color          : rgba(255, 255, 255, 1);
+            width          : 2.8rem;
+            height         : 0.46rem;
+            background     : linear-gradient(90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
+            border-radius  : 0.24rem;
+        }
+
+
+      
+
+    }
+
+
+
+    
+
+}
