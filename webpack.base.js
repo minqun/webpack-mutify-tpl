@@ -19,11 +19,11 @@ const createFiles = () => {
         let template = `./src/views/pages/${name}.html`;
         let chunks =
             process.env.NODE_ENV == "development" ? [name] : [name, "verndor", "commons"];
-
+        let tplName = process.env.NODE_ENV == "development" ? 'index' : name
         result.push(
             new HtmlWebpackPlugin({
                 template: template,
-                filename: `${name}/index.html`,
+                filename: `${name}/${tplName}.html`,
                 inject: 'body',
                 minify: false,
                 chunks: chunks,
@@ -66,6 +66,7 @@ module.exports = {
         path: dirOutput,
         publicPath: "/",
     },
+
     module: {
         rules: [{
                 test: /\.less$/,
@@ -116,5 +117,6 @@ module.exports = {
             chunkFilename: "[name]/[id].[hash].css",
         }),
         require("autoprefixer"),
+
     ],
 };
