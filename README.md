@@ -5,7 +5,7 @@
 
 ## 开始
 ```bash
-$ npm run devv
+$ npm run dev
 ```
 
 
