@@ -1,14 +1,26 @@
 ## 描述
 
 * 支持单/多html文件开发,支持输出编译合并inline类型html、引入类型html、 umd模式js脚本
+* 支持less, es6
 
+##开始dev
 ```bash
-$ npm install ant-design-vue --save
+$ npm run devv
 ```
 
+
+- 打包引入类型html
 ```bash
-$ yarn add ant-design-vue
+$ npm run build
 ```
 
-If you are in a bad network environment，you can try other registries and tools like [cnpm](https://github.com/cnpm/cnpm).
+- 打包inline类型html
+```bash
+$ npm run build
+$ npm run inline-tpl
+```
+- md模式js脚本
+```bash
+$ npm run build-js
+```
 
