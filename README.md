@@ -2,7 +2,6 @@
 
 * 支持单/多html文件开发,支持输出编译合并inline类型html、引入类型html、 umd模式js脚本
 
-
 ## 开始
 ```bash
 $ npm run dev
