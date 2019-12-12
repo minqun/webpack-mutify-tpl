@@ -19,7 +19,7 @@ $ npm run build
 $ npm run build
 $ npm run inline-tpl
 ```
-- md模式js脚本
+- umd模式js脚本
 ```bash
 $ npm run build-js
 ```
