@@ -24,3 +24,4 @@ $ npm run inline-tpl
 $ npm run build-js
 ```
 
+舒适开发： chrome浏览器安装liveReload,开始你的装逼模式~~
