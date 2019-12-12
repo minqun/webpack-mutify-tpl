@@ -4,11 +4,12 @@
     "description": "",
     "scripts": {
         "test": "",
-        "dev": "cross-env NODE_ENV=development  webpack-dev-server --open",
-        "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+        "dev": "cross-env NODE_ENV=development NODE_MOTIFY=true  webpack-dev-server --open",
+        "dev-alone": "cross-env NODE_ENV=development NODE_MOTIFY=false webpack-dev-server --open",
+        "build": "cross-env NODE_ENV=production NODE_MOTIFY=true webpack --config webpack.prod.js",
         "inline-tpl": " gulp inline-tpl",
         "inline-locale": " gulp inline-locale",
-        "build-js": "cross-env NODE_ENV=production webpack --config webpack.jsPub.js"
+        "build-js": "cross-env NODE_ENV=production NODE_MOTIFY=true  webpack --config webpack.jsPub.js"
     },
     "repository": {
         "type": "git",
