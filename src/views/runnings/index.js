@@ -1,6 +1,7 @@
 import name from "@source/css/index";
 import * as utils from "@source/js/utils";
 import "@source/js/index";
+
 // import React from 'react'
 // import ReactDom from 'react-dom'
 // ReactDom.render(<h1> Hello, world! </h1>, document.getElementById('root'))
@@ -12,7 +13,9 @@ if (config.debug) {
     script.onload = () => {
         try {
             eruda.init();
-        } catch (e) { console.log(e) };
+        } catch (e) {
+            console.log(e)
+        };
 
     }
 
@@ -27,6 +30,6 @@ function setFontSize(designWidth, minWidth, maxWidth) {
     htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
 }
 setFontSize(320, 200, 640);
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     setFontSize(320, 200, 640);
 });
