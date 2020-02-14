@@ -31,7 +31,10 @@ const createFiles = () => {
         );
         obj[name] = `./src/views/runnings/${name}`;
     }
-    return { htmlPlugins: result, mainEntries: obj };
+    return {
+        htmlPlugins: result,
+        mainEntries: obj
+    };
 };
 const createPage = () => {
     let template = `./src/views/pages/${config.page}.html`;
@@ -87,10 +90,12 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: "file-loader",
-                options: {
-                    name: "[path][name].[ext]?[hash]",
-                },
+                
+                    loader: "file-loader",
+                    options: {
+                        name: "[path][name].[ext]?[hash]",
+                    }
+
             },
             {
                 test: /\.(htm|html)$/i,

@@ -1,0 +1,60 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  min-width: 320px;
+}
+html body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  min-width: 320px;
+  position: relative;
+  font-size: 0.14rem;
+}
+html .root {
+  height: 100%;
+  width: 100%;
+  background-size: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html .root .root-content {
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  overflow: auto;
+}
+@media screen and (min-device-height: 800px) and (max-device-width: 470px) {
+  html .root {
+    padding: 44px 0 34px 0;
+  }
+}
+@media screen and (min-device-width: 800px) and (max-device-height: 600px) {
+  html .root {
+    padding: 0 34px 0 44px;
+  }
+}
+@media all and (orientation: landscape) {
+  html .root {
+    background: red;
+  }
+}
+@media all and (orientation: portrait) {
+  html .root {
+    background: green;
+  }
+}
+

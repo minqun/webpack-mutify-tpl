@@ -2,9 +2,23 @@ const path = require('path')
 
 const webpackMerge = require('webpack-merge')
 const BaseConfig = require('./webpack.base')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 let config = webpackMerge({}, BaseConfig, {
     mode: 'production',
+    module: {
+        rules: [{
+            test: /\.(png|jpg|gif|svg)$/,
+            loader: "file-loader",
+            options: {
+                name: "[path][name].[ext]?[hash]",
+            }
+        }]
+
+    },
+
+
     externals: {
         eruda: 'eruda'
     },

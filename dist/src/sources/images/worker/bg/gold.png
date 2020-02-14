@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "src/sources/images/worker/bg/gold.png?dcb6328cb43fa171efb6c80688828cde";

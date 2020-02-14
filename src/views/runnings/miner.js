@@ -70,6 +70,8 @@ require("@source/images/worker/bg/Elevator13.png")
 require("@source/images/worker/bg/Elevator14.png")
 require("@source/images/worker/bg/Elevator15.png")
 require("@source/images/worker/bg/m1.gif")
+require("@source/images/worker/bg/diamond2.png")
+require("@source/images/worker/bg/gold2.png")
 require("@source/images/worker/bg/m2.gif")
 require("@source/images/worker/bg/m2Q.gif")
 require("@source/images/worker/bg/tuiche1.png")
@@ -93,7 +95,6 @@ var docEl = document.documentElement || document;
 var startSecond = new Date().getTime();
 var endSecond = new Date().getTime();
 var timepz = (endSecond - startSecond) / 100000;
-console.log(startSecond);
 var setWidth = 720; // 设备尺寸
 var cW = docEl.clientWidth > 720 ? 720 : docEl.clientWidth;
 var cH = docEl.clientHeight;
@@ -119,6 +120,11 @@ var tweenDiamond = null; // 钻石动画
 var tweenCoin = null; //金币动画
 var tweenCoinAdd = null // 推车金币
 var isSecSpeed = false;
+var isShowCoin = false;
+var isShowCoinTwo = false;
+var isShowDiamond = false;
+//  
+var startGame = false;
 var stepCache = {
     m1: 1, // 矿工
     m2: 1, // 电梯工
@@ -262,6 +268,10 @@ function groupMan(layer, images, type, num, step, x, y, callback) {
         // 按钮
         mbtn.timerUp = null;
         mbtn.on('click touchstart', function () {
+            if (!startGame) {
+                startGame = true;
+                window.playableSDK.sendEvent('startPlayPlayable');
+            }
             startStep = type;
             console.log(type, group);
             if (stepCache['m' + startStep] == 15) {
@@ -376,6 +386,20 @@ function bgLayerFun(layer, images, stage) {
         width: images.diamondText.width * iv,
         height: images.diamondText.height * iv
     })
+    var diamondText1 = new Konva.Image({
+        image: images.diamondText,
+        visible: false,
+        x: 490 * iv,
+        y: 90 * iv,
+        scaleX: 0,
+        scaleY: 0,
+        offset: {
+            x: images.diamondText.width * iv / 2,
+            y: images.diamondText.height * iv / 2
+        },
+        width: images.diamondText.width * iv,
+        height: images.diamondText.height * iv
+    })
     //quily 默认文案
     var defaultText = new Konva.Image({
         image: images.defaultText,
@@ -418,6 +442,39 @@ function bgLayerFun(layer, images, stage) {
         width: images.diamond.width * iv,
         height: images.diamond.height * iv
     })
+    // 钻石2
+
+    var diamond2 = new Konva.Image({
+        image: images.diamond2,
+        visible: false,
+        x: 480 * iv,
+        scaleX: 0,
+        scaleY: 0,
+        y: 200 * iv,
+        width: images.diamond2.width * iv,
+        height: images.diamond2.height * iv,
+        offset: {
+            x: images.diamond2.width * iv / 2,
+            y: images.diamond2.height * iv / 2
+        },
+
+    })
+    // 金币2
+    var coin2 = new Konva.Image({
+        image: images.gold2,
+        visible: false,
+        scaleX: 0,
+        scaleY: 0,
+        x: 480 * iv,
+        y: 200 * iv,
+        width: images.gold2.width * iv,
+        height: images.gold2.height * iv,
+        offset: {
+            x: images.gold2.width * iv / 2,
+            y: images.gold2.height * iv / 2
+        },
+
+    })
     // 金币
     var coin = new Konva.Image({
         image: images.coin,
@@ -435,6 +492,20 @@ function bgLayerFun(layer, images, stage) {
     })
     // gold - 金币文案
     var gold = new Konva.Image({
+        visible: false,
+        image: images.gold,
+        x: 490 * iv,
+        scaleX: 0,
+        scaleY: 0,
+        y: 140 * iv,
+        offset: {
+            x: images.gold.width * iv / 2,
+            y: images.gold.height * iv / 2
+        },
+        width: images.gold.width * iv,
+        height: images.gold.height * iv
+    })
+    var gold1 = new Konva.Image({
         visible: false,
         image: images.gold,
         x: 490 * iv,
@@ -512,8 +583,8 @@ function bgLayerFun(layer, images, stage) {
         },
         scaleX: 0.8,
         scaleY: 0.8,
-        x: 150 * iv,
-        y: 160 * iv,
+        x: 550 * iv,
+        y: 470 * iv,
         id: 'btn',
 
     });
@@ -526,19 +597,40 @@ function bgLayerFun(layer, images, stage) {
         image: images.finger,
         scaleX: 1,
         scaleY: 1,
-        x: 150 * iv,
-        y: 160 * iv,
+        x: 360 * iv,
+        y: 480 * iv,
         id: 'btn',
 
     });
-
+    banner.on('click touchstart', function () {
+        window.playableSDK.sendEvent('clickContent', {
+            section: 'section1',
+            area: 'area1'
+        });
+    })
 
     more.on('click touchstart', function () {
+        if (!startGame) {
+            startGame = true;
+            window.playableSDK.sendEvent('startPlayPlayable');
+        }
+        // window.playableSDK.sendEvent('clickDownloadBar', {
+        //     section: 'section1',
+        //     area: 'area1'
+        // });
         console.log('点击更多')
         window.playableSDK.openAppStore();
     });
     // 立即下载
     btn.on('click touchstart', function () {
+        if (!startGame) {
+            startGame = true;
+            window.playableSDK.sendEvent('startPlayPlayable');
+        }
+        window.playableSDK.sendEvent('clickDownloadBar', {
+            section: 'section2',
+            area: 'area2'
+        });
         console.log('点击立即下载')
         window.playableSDK.openAppStore();
     });
@@ -566,8 +658,30 @@ function bgLayerFun(layer, images, stage) {
         duration: 0.6, //持续时间
         easing: Konva.Easings.EaseInOut, //动画的动画效果
     });
-
-    // tweenCoin.play();
+    var tweenCoin2 = new Konva.Tween({
+        node: coin2, //要进行动画的Konva对象
+        scaleX: 1,
+        scaleY: 1,
+        onFinish: function () {
+            tweenCoin2.reset();
+            tweenCoin2.play();
+        },
+        duration: 0.6, //持续时间
+        easing: Konva.Easings.EaseInOut, //动画的动画效果
+    });
+    tweenCoin2.play();
+    var tweenDiamond2 = new Konva.Tween({
+        node: diamond2, //要进行动画的Konva对象
+        scaleX: 1,
+        scaleY: 1,
+        onFinish: function () {
+            tweenDiamond2.reset();
+            tweenDiamond2.play();
+        },
+        duration: 0.6, //持续时间
+        easing: Konva.Easings.EaseInOut, //动画的动画效果
+    });
+    tweenDiamond2.play();
 
     // 金币文字动画
     var tweenGoldText = new Konva.Tween({
@@ -577,7 +691,18 @@ function bgLayerFun(layer, images, stage) {
         y: 90 * iv,
         duration: 0.6, //持续时间
         easing: Konva.Easings.EaseInOut, //动画的动画效果
-
+    });
+    var tweenGoldText2 = new Konva.Tween({
+        node: gold1, //要进行动画的Konva对象
+        scaleX: 1,
+        scaleY: 1,
+        y: 90 * iv,
+        duration: 0.6, //持续时间
+        onFinish: function () {
+            tweenGoldText2.reset();
+            tweenGoldText2.play();
+        },
+        easing: Konva.Easings.EaseInOut, //动画的动画效果
     });
 
     // 钻石文字动画
@@ -585,6 +710,19 @@ function bgLayerFun(layer, images, stage) {
         node: diamondText, //要进行动画的Konva对象
         scaleX: 1,
         scaleY: 1,
+        y: 70 * iv,
+        duration: 0.6, //持续时间
+        easing: Konva.Easings.EaseInOut, //动画的动画效果
+
+    });
+    var tweenDiamondText2 = new Konva.Tween({
+        node: diamondText1, //要进行动画的Konva对象
+        scaleX: 1,
+        scaleY: 1,
+        onFinish: function () {
+            tweenDiamondText2.reset();
+            tweenDiamondText2.play();
+        },
         y: 70 * iv,
         duration: 0.6, //持续时间
         easing: Konva.Easings.EaseInOut, //动画的动画效果
@@ -667,119 +805,193 @@ function bgLayerFun(layer, images, stage) {
         if (gameEnd) {
             return;
         }
-
         var rank = stepCache['m1'] + stepCache['m2'] + stepCache['m3'];
-        moneyDefault += rank * 3 * timepz;
+        moneyDefault += rank * timepz;
         var tnum = cordAdd(0.01 * moneyDefault);
         text.text(tnum);
-        if (tnum > 1 && tnum < 1.5 && rank == 3) { // 金币
-            coin.show();
-            tweenCoin.play();
-            defaultText.hide();
-            gold.show();
-            tweenGoldText.play();
-            shengji.hide();
-        } else if (tnum > 4 && tnum < 4.5 && rank == 3) { // 钻石
-            diamond.show();
-            tweenDiamond.play();
-            defaultText.hide();
-            gold.hide();
-            diamondText.show();
-            tweenDiamondText.play();
-            shengji.hide();
+        if (tnum > 1 && tnum < 1.2) { // 金币
+            if (!isShowCoin) {
+                isShowCoin = true;
+                coin.show();
+                tweenCoin.play();
+                defaultText.hide();
+                gold.show();
+                tweenGoldText.play();
+                shengji.hide();
+                setTimeout(function () {
+                    coin.hide();
+                    gold.hide();
+                }, 800)
+            }
+        } else if (tnum > 3 && tnum < 3.2) { // 金币2
+            if (!isShowCoinTwo) {
+                isShowCoinTwo = true;
+                coin.show();
+                tweenCoin.reset();
+                tweenCoin.play();
+                defaultText.hide();
+                gold.show();
+                tweenGoldText.reset();
+                tweenGoldText.play();
+                shengji.hide();
+                setTimeout(function () {
+                    coin.hide();
+                    gold.hide();
+                }, 800)
+            }
+        } else if (tnum > 4 && tnum < 4.2) { // 钻石
+            if (!isShowDiamond) {
+                isShowDiamond = true;
+                diamond.show();
+                tweenDiamond.play();
+                defaultText.hide();
+                coin.hide();
+                gold.hide();
+                diamondText.show();
+                tweenDiamondText.play();
+                shengji.hide();
+                setTimeout(function () {
+                    diamond.hide();
+                    diamondText.hide();
+                }, 800)
+            }
+
         } else if (tnum == setMaxMoney) {
             coin.hide();
             diamond.hide();
             shengji.hide();
             gold.hide();
             diamondText.hide();
+            // 游戏完成上报
+            window.playableSDK.sendEvent('finishPlayPlayable');
             // 弹窗
+            console.log(tnum == setMaxMoney, setMaxMoney)
             stage.add(winUp(images));
             gameEnd = true;
 
-        } else if (((tnum >= 1.5 && tnum < 4) || tnum >= 4.5) && tnum != setMaxMoney && rank == 3) {
+        } else if (tnum > setMaxMoney / 2 && rank > 3 && rank <= 8) {
             coin.hide();
             diamond.hide();
             defaultText.hide();
-            gold.hide();
             diamondText.hide();
-            shengji.show();
-        } else if (tnum > setMaxMoney / 2 && rank > 5 && rank <= 8) {
-            if (!timerShowHbType.gold) {
-                if (timerShowHbType.diamond) clearInterval(timerShowHbType.diamond)
-                timerShowHbType.gold = setInterval(() => {
-                    if (coin.isVisible()) {
-                        // 钻石显示 // 钻石文案提醒
-                        diamond.hide();
-                        diamondText.hide();
-                        // tweenDiamond.play();
-                        // tweenDiamondText.play();
-                        // 赶快升级员工挖矿
-                        defaultText.hide();
-                        // 展示金币文案  // 金币文案跳出动画
-                        coin.hide();
-                        tweenCoin.reset();
-                        gold.hide();
-                        tweenGoldText.reset();
-                        // 升级提速
-                        shengji.show();
-                    } else {
+            diamondText1.hide();
+            gold.hide();
+            shengji.hide();
+            diamond2.hide();
 
-                        // 钻石显示 // 钻石文案提醒
-                        diamond.hide();
-                        diamondText.hide();
-                        // tweenDiamond.play();
-                        // tweenDiamondText.play();
-                        // 赶快升级员工挖矿
-                        defaultText.hide();
-                        // 展示金币文案  // 金币文案跳出动画
-                        coin.show();
-                        tweenCoin.play();
-                        gold.show();
-                        tweenGoldText.play();
-                        // 升级提速
-                        shengji.hide();
-                    }
-                }, 1000)
+            if (!coin2.isVisible()) {
+                coin2.show();
+                gold1.show();
+                tweenGoldText2.play();
             }
-        } else if (rank > 8) {
-            if (!timerShowHbType.diamond) {
-                if (timerShowHbType.gold) clearInterval(timerShowHbType.gold)
-                timerShowHbType.diamond = setInterval(() => {
-                    if (diamond.isVisible()) {
-                        // 钻石显示 // 钻石文案提醒
-                        diamond.hide();
-                        diamondText.hide();
-                        tweenDiamond.reset();
-                        tweenDiamondText.reset();
-                        // 赶快升级员工挖矿
-                        defaultText.hide();
-                        // 展示金币文案  // 金币文案跳出动画
-                        coin.hide();
-                        // tweenCoin.reset();
-                        gold.hide();
-                        // tweenGoldText.reset();
-                        // 升级提速
-                        shengji.show();
-                    } else {
 
-                        // 钻石显示 // 钻石文案提醒
-                        diamond.show();
-                        diamondText.show();
-                        tweenDiamond.play();
-                        tweenDiamondText.play();
-                        // 赶快升级员工挖矿
-                        defaultText.hide();
-                        // 展示金币文案  // 金币文案跳出动画
-                        coin.hide();
-                        // tweenCoin.play();
-                        gold.hide();
-                        // tweenGoldText.play();
-                        // 升级提速
-                        shengji.hide();
-                    }
-                }, 1000)
+
+            // if (!timerShowHbType.gold) {
+            //     if (timerShowHbType.diamond) clearInterval(timerShowHbType.diamond)
+            //     timerShowHbType.gold = setInterval(() => {
+            //         if (coin2.isVisible()) {
+            //             // 钻石显示 // 钻石文案提醒
+            //             diamond.hide();
+            //             diamondText.hide();
+            //             // tweenDiamond.play();
+            //             // tweenDiamondText.play();
+            //             // 赶快升级员工挖矿
+            //             defaultText.hide();
+            //             // 展示金币文案  // 金币文案跳出动画
+            //             coin.hide();
+            //             tweenCoin.hide();
+            //             gold.hide();
+            //             tweenGoldText.reset();
+            //             // 升级提速
+            //             // shengji.show();
+            //         } else {
+
+            //             // 钻石显示 // 钻石文案提醒
+            //             diamond.hide();
+            //             diamondText.hide();
+            //             // tweenDiamond.play();
+            //             // tweenDiamondText.play();
+            //             // 赶快升级员工挖矿
+            //             defaultText.hide();
+            //             // 展示金币文案  // 金币文案跳出动画
+            //             coin.hide();
+            //             // tweenCoin.reset();
+            //             // tweenCoin.play();
+            //             tweenGoldText.reset();
+            //             gold.show();
+            //             tweenGoldText.play();
+            //             // 升级提速
+            //             shengji.hide();
+            //         }
+            //     }, 700)
+            // }
+        } else if (rank > 8 && tnum > setMaxMoney / 2) {
+            coin2.hide();
+            coin.hide();
+            gold.hide();
+            diamond.hide();
+            gold1.hide();
+            defaultText.hide();
+            shengji.hide();
+            diamondText.hide();
+            if (!diamond2.isVisible()) {
+                diamond2.show();
+                diamondText1.show();
+                tweenDiamondText2.play();
             }
+
+            // if (!timerShowHbType.diamond) {
+            //     if (timerShowHbType.gold) clearInterval(timerShowHbType.gold)
+            //     timerShowHbType.diamond = setInterval(() => {
+            //         if (diamond.isVisible()) {
+            //             // 钻石显示 // 钻石文案提醒
+            //             diamond.hide();
+            //             diamondText.hide();
+            //             tweenDiamond.reset();
+            //             tweenDiamondText.reset();
+            //             // 赶快升级员工挖矿
+            //             defaultText.hide();
+            //             // 展示金币文案  // 金币文案跳出动画
+            //             coin.hide();
+            //             // tweenCoin.reset();
+            //             gold.hide();
+            //             // tweenGoldText.reset();
+            //             // 升级提速
+            //             shengji.show();
+            //         } else {
+
+            //             // 钻石显示 // 钻石文案提醒
+            //             diamond.show();
+            //             diamondText.show();
+            //             tweenDiamond.reset();
+            //             tweenDiamondText.reset();
+            //             tweenDiamond.play();
+            //             tweenDiamondText.play();
+            //             // 赶快升级员工挖矿
+            //             defaultText.hide();
+            //             // 展示金币文案  // 金币文案跳出动画
+            //             coin.hide();
+            //             // tweenCoin.play();
+            //             gold.hide();
+            //             // tweenGoldText.play();
+            //             // 升级提速
+            //             shengji.hide();
+            //         }
+            //     }, 700)
+            // }
+        } else if (tnum < 0.02) {
+            diamondText1.show();
+            shengji.hide();
+        } else {
+            coin2.hide();
+            diamond2.hide();
+            diamondText1.hide();
+            defaultText.hide();
+            gold1.hide();
+            if (!isShowCoin && !isShowCoinTwo && !isShowDiamond) {
+                shengji.show();
+            }
+
         }
 
     }
@@ -819,11 +1031,16 @@ function bgLayerFun(layer, images, stage) {
 
     layer.add(circle);
     layer.add(finger);
+
     layer.add(groupHb);
     layer.add(diamond);
+    layer.add(diamond2);
+    layer.add(coin2);
     layer.add(coin);
     layer.add(gold);
+    layer.add(gold1);
     layer.add(diamondText);
+    layer.add(diamondText1);
     layer.add(defaultText);
     layer.add(shengji);
 
@@ -849,6 +1066,7 @@ function bgLayerFun(layer, images, stage) {
         }
     })
     var twfinger = false;
+
     var tweenFinder = new Konva.Tween({
         node: finger, //要进行动画的Konva对象
         scaleX: 0.8,
@@ -908,24 +1126,6 @@ function bgLayerFun(layer, images, stage) {
     }, layer);
 
     animate.start();
-    // diamond
-    // var anitDia = new Konva.Animation(function (frame) {
-    //     // frame.timeDiff
-    //     var t = groupHb.scaleX();
-    //     if (t.toFixed(2) == 1) {
-    //         hk = -1
-    //     }
-    //     if (t.toFixed(2) == 0.9) {
-    //         hk = 1;
-    //     }
-    //     groupHb.scaleY(groupHb.scaleY() + 0.001 * hk);
-
-    //     groupHb.scaleX(t + 0.0025 * hk);
-
-
-    // }, layer);
-
-
 
 }
 
@@ -938,17 +1138,16 @@ function antMiFunc(layer, node1, node2, node3, step, fn) {
     var tim1 = function () {
         // 获取时间间隔
         endSecond = new Date().getTime();
-        timepz = (endSecond - startSecond) / 100000;
-        // console.log(timepz, 'pz')
+        timepz = (endSecond - startSecond) / 200000;
         // console.log('间隔', endSecond - startSecond)
         var x1 = node1.x();
         if (x1 < plft) {
-            num1 = 2;
+            num1 = step + 1 > 8 ? 8 : step + 1;
             node1.getChildren()[1].scaleX(1);
             node1.getChildren()[1].x(-26 * iv);
             tweenCoinAdd.play();
         } else if (x1 >= cW - prgt) {
-            num1 = -2;
+            num1 = -step - 1 < -8 ? -8 : -step - 1;
             node1.getChildren()[1].scaleX(-1)
             node1.getChildren()[1].x(40 * iv);
         }
@@ -961,13 +1160,13 @@ function antMiFunc(layer, node1, node2, node3, step, fn) {
     var tim2 = function () {
         var x2 = node2.x();
         if (x2 < plft) {
-            num2 = 2;
+            num2 = step;
             node2.getChildren()[1].scaleX(1)
             node2.getChildren()[1].x(-26 * iv);
         } else if (x2 >= cW - prgt) {
             node2.getChildren()[1].scaleX(-1)
             node2.getChildren()[1].x(40 * iv);
-            num2 = -2;
+            num2 = -step;
         }
         node2.x(x2 + num2);
         layer.draw()
@@ -975,37 +1174,39 @@ function antMiFunc(layer, node1, node2, node3, step, fn) {
     var tim3 = function () {
         var x3 = node3.x();
         if (x3 < plft) {
-            num3 = 2;
+            num3 = step
             node3.getChildren()[1].scaleX(1)
             node2.getChildren()[1].x(-26 * iv);
         } else if (x3 >= cW - prgt) {
             node3.getChildren()[1].scaleX(-1)
             node3.getChildren()[1].x(40 * iv);
-            num3 = -2;
+            num3 = step > 4 ? -5 : -2;
         }
         node3.x(x3 + num3);
         layer.draw()
     }
     if (!timerInt1) {
-        timerInt1 = setInterval(tim1, 150 * (1 / step));
+        timerInt1 = setInterval(tim1, 100 * (1 / step) > 1 ? Math.floor(100 * (1 / step)) : 1);
     } else {
         clearInterval(timerInt1);
-        timerInt1 = setInterval(tim1, 150 * (1 / step));
+        setTimeout(function () {
+            timerInt1 = setInterval(tim1, 100 * (1 / step) > 1 ? Math.floor(100 * (1 / step)) : 1);
+        }, 1)
     }
     if (node2) {
         if (!timerInt2) {
-            timerInt2 = setInterval(tim2, 150 * (1 / step));
+            timerInt2 = setInterval(tim2, 120 * (1 / step));
         } else {
             clearInterval(timerInt2);
-            timerInt2 = setInterval(tim2, 150 * (1 / step));
+            timerInt2 = setInterval(tim2, 120 * (1 / step));
         }
     }
     if (node3) {
         if (!timerInt3) {
-            timerInt3 = setInterval(tim3, 150 * (1 / step));
+            timerInt3 = setInterval(tim3, 120 * (1 / step));
         } else {
             clearInterval(timerInt3);
-            timerInt3 = setInterval(tim3, 150 * (1 / step));
+            timerInt3 = setInterval(tim3, 120 * (1 / step));
         }
     }
 
@@ -1014,12 +1215,14 @@ function antMiFunc(layer, node1, node2, node3, step, fn) {
 }
 // 初始化
 function initStage(images) {
-
+    var w = iv * images.bg.width;
+    var h = iv * images.bg.height;
     var stage = new Konva.Stage({
         container: 'game',
-        width: cW,
-        height: cH
+        width: w,
+        height: h
     });
+
 
     var background = new Konva.Layer();
     var bgLayer = new Konva.Layer();
@@ -1050,6 +1253,7 @@ function loadImages(sources, callback) {
                 document.getElementById("process").innerHTML = Math.floor(loadedImages / numImages * 100)
                 if (++loadedImages >= numImages) {
                     callback(images);
+                    window.playableSDK.sendEvent('loadMainScene');
                     document.getElementById("mode-box").style.display = "none";
                 }
             };
@@ -1078,14 +1282,19 @@ function setGif(layer, url) {
     // use external library to parse and draw gif animation
     function onDrawFrame(ctx, frame) {
         // update canvas size
-        canvas.width = frame.width * iv;
-        canvas.height = frame.height * iv;
+        if (frame.width) {
+            var w = frame.width < 2 ? 150 * iv : frame.width * iv;
+            var h = frame.height < 2 ? 150 * iv : frame.height * iv;
+
+            canvas.width = w
+            canvas.height = h
+            ctx.drawImage(frame.buffer, 0, 0, w, h);
+        }
         // update canvas that we are using for Konva.Image
-        ctx.drawImage(frame.buffer, 0, 0, frame.width * iv, frame.height * iv);
+
         // redraw the layer
         layer.draw();
     }
-
     gifler(url).frames(canvas, onDrawFrame);
 
     // draw resulted canvas into the stage as Konva.Image
@@ -1163,8 +1372,11 @@ function winUp(images) {
         height: images.button_2.height * iv * 0.9
     })
     winBtn.on('click touchstart', function () {
-        console.log('点击领取')
-        window.location.href = window.dumpAddress;
+        console.log('点击前往下载')
+        window.playableSDK.sendEvent('clickFinishDownloadBar', {
+            section: 'section3',
+            area: 'area3'
+        });
     })
 
     winLayer.add(winReact);
@@ -1206,6 +1418,8 @@ var sources = {
     up_el_button: 'bg/up_el_button.png',
     winmoney_p: 'bg/winmoney_p.png',
     miner: 'bg/m2.gif',
+    gold2: 'bg/gold2.png',
+    diamond2: 'bg/diamond2.png',
     m2Q: 'bg/m2Q.gif',
     // miner2: 'bg/miner2.png',
     // miner3: 'bg/miner2.png',

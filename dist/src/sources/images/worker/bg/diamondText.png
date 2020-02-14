@@ -1,0 +1,1 @@
+module.exports = __webpack_public_path__ + "src/sources/images/worker/bg/diamondText.png?49c37ccba7fff56b1565c9c56bfb0e2f";
