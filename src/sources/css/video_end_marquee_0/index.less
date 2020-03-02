@@ -1,0 +1,346 @@
+html {
+  height    : 100%;
+  width     : 100%;
+  margin    : 0;
+  box-sizing: border-box;
+  padding   : 0;
+  min-width : 320px;
+
+
+  body {
+    height    : 100%;
+    width     : 100%;
+    margin    : 0 auto;
+    box-sizing: border-box;
+    padding   : 0;
+    min-width : 320px;
+  
+    position  : relative;
+    font-size : 14px;
+
+  }
+
+  .root {
+    height           : 100%;
+    width            : 100%;
+    background-size  : 100%;
+    background-repeat: no-repeat;
+
+    background-size    : 100%;
+    background-position: top center;
+    box-sizing         : border-box;
+    position           : absolute;
+    top                : 0;
+    left               : 0;
+
+    &.landscape {
+
+
+      .root-content {
+        height          : 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-sizing      : border-box;
+        width           : 100%;
+        overflow        : auto;
+      }
+
+      .box {
+
+        position        : relative;
+        width           : 3.6rem;
+        position        : relative;
+        height          : 3rem;
+        padding         : 0.14rem 0;
+        box-sizing      : border-box;
+        margin          : 0.3rem auto;
+        background-color: rgba(2, 6, 35, 0.4);
+        border-radius   : 0.14rem;
+      }
+
+      .box-wrap {
+        position        : relative;
+        z-index         : 3;
+        width           : 3.32rem;
+        box-sizing      : border-box;
+        height          : 2.72rem;
+        padding-top     : 0.26rem;
+        margin          : 0 auto;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius   : 0.08rem;
+      }
+
+
+      .icon {
+        width  : 0.68rem;
+        display: block;
+        margin : 0 auto 0;
+        height : 0.68rem;
+      }
+
+      .title {
+        width      : 2.2rem;
+        overflow   : hidden;
+        margin     : 0.12rem auto 0;
+        text-align : center;
+        font-size  : 0.18rem;
+        line-height: 0.22rem;
+        font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+        font-weight: bold;
+        color      : rgba(57, 57, 57, 1);
+      }
+
+      .desc {
+        text-align : center;
+        margin     : 0.08rem auto 0;
+        width      : 2.8rem;
+        height     : 0.48rem;
+        font-size  : 0.13rem;
+        font-weight: 400;
+        color      : rgba(122, 122, 122, 1);
+        line-height: 0.22rem;
+        font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+      }
+
+      .desc {
+        div {
+          display           : -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow          : hidden;
+        }
+      }
+
+      .button {
+        margin       : 0.18rem auto 0;
+        display      : block;
+        text-align   : center;
+        line-height  : 0.46rem;
+        font-size    : 0.18rem;
+        font-family  : Roboto-Medium, Roboto;
+        font-weight  : 500;
+        color        : rgba(255, 255, 255, 1);
+        width        : 2.8rem;
+        height       : 0.46rem;
+        background   : linear-gradient(90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
+        border-radius: 0.24rem;
+      }
+
+      .bb,
+      .bb:before,
+      .bb:after {
+
+        position: absolute;
+
+        top: 0;
+
+        bottom: 0;
+
+        left: 0;
+
+        right: 0;
+
+      }
+
+
+
+      .bb {
+        border-radius: 0.14rem;
+        position     : relative;
+      }
+
+    
+      
+      .bb:before,
+      .bb:after {
+        content      : '';
+        border-radius: 0.14rem;
+        z-index      : 0;
+        box-shadow   : inset 0 0 0 0;
+        border       : 0.05rem solid;
+        
+        animation    : clipMe2 2s linear infinite;
+        border-image : linear-gradient(133deg, rgba(55, 201, 255, 1), rgba(50, 64, 255, 1), rgba(255, 98, 50, 1), rgba(225, 27, 255, 1)) 5 5;
+      }
+
+      .bb:after {
+        animation-delay: 1s;
+      }
+
+      @keyframes clipMe2 {
+
+        0%,
+        100% {
+          clip: rect(0px, 3.6rem, 0.05rem, 0px);
+        }
+
+        25% {
+          clip: rect(0px, 0.05rem, 3rem, 0px);
+        }
+
+        50% {
+          clip: rect(2.95rem, 3.6rem, 3rem, 0px);
+        }
+
+        75% {
+          clip: rect(0px, 3.6rem, 3rem, 3.55rem);
+        }
+      }
+    }
+
+    &.portrait {
+
+
+      .root-content {
+        max-width : 640px;
+        margin: 0 auto;
+        height          : 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-sizing      : border-box;
+        width           : 100%;
+        overflow        : auto;
+      }
+
+      .box {
+
+        position        : relative;
+        width           : 100%;
+        position        : relative;
+        height          : 5.33rem;
+        padding         : 0.25rem 0;
+        box-sizing      : border-box;
+        margin          : 50% auto;
+        background-color: rgba(2, 6, 35, 0.4);
+        border-radius   : 0.14rem;
+      }
+
+      .box-wrap {
+        position        : relative;
+        z-index         : 3;
+        width           : 5.9rem;
+        box-sizing      : border-box;
+        height          : 4.83rem;
+        padding-top     : 0.46rem;
+        margin          : 0 auto;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius   : 0.14rem;
+      }
+
+
+      .icon {
+        width  : 1.2rem;
+        display: block;
+        margin : 0 auto 0;
+        height : 1.2rem;
+      }
+
+      .title {
+        width      : 2.8rem;
+        overflow   : hidden;
+        margin     : 0.21rem auto 0;
+        text-align : center;
+        font-size  : 0.32rem;
+        line-height: 0.40rem;
+        font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+        font-weight: bold;
+        color      : rgba(57, 57, 57, 1);
+      }
+
+      .desc {
+        text-align : center;
+        margin     : 0.14rem auto 0;
+        width      : 4.98rem;
+        height     : 0.85rem;
+        font-size  : 0.23rem;
+        font-weight: 400;
+        color      : rgba(122, 122, 122, 1);
+        line-height: 0.39rem;
+        font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+      }
+
+      .desc {
+        div {
+          display           : -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow          : hidden;
+        }
+      }
+
+      .button {
+        margin       : 0.32rem auto 0;
+        display      : block;
+        text-align   : center;
+        line-height  : 0.82rem;
+        font-size    : 0.32rem;
+        font-family  : Roboto-Medium, Roboto;
+        font-weight  : 500;
+        color        : rgba(255, 255, 255, 1);
+        width        : 4.98rem;
+        height       : 0.82rem;
+        background   : linear-gradient(90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
+        border-radius: 0.49rem;
+      }
+
+      .bb,
+      .bb:before,
+      .bb:after {
+
+        position: absolute;
+
+        top: 0;
+
+        bottom: 0;
+
+        left: 0;
+
+        right: 0;
+
+      }
+
+
+
+      .bb {
+        border-radius: 0.14rem;
+        position     : relative;
+      }
+
+      .bb:before,
+      .bb:after {
+        content      : '';
+        border-radius: 0.14rem;
+        z-index      : 0;
+        box-shadow   : inset 0 0 0 0;
+        border       : 0.1rem solid;
+        animation    : clipMe 3s linear infinite;
+        border-image : linear-gradient(133deg, rgba(55, 201, 255, 1), rgba(50, 64, 255, 1), rgba(255, 98, 50, 1), rgba(225, 27, 255, 1)) 9 9;
+      }
+
+      .bb:after {
+        animation-delay: 1.5s;
+      }
+
+      @keyframes clipMe {
+
+        0%,
+        100% {
+          clip: rect(0px, 6.4rem, 0.1rem, 0px);
+        }
+
+        25% {
+          clip: rect(0px, 0.1rem, 5.33rem, 0px);
+        }
+
+        50% {
+          clip: rect(5.23rem, 6.4rem, 5.33rem, 0px);
+        }
+
+        75% {
+          clip: rect(0px, 6.4rem, 5.33rem, 5.3rem);
+        }
+      }
+    }
+
+  }
+
+
+}

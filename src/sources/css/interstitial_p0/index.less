@@ -7,6 +7,7 @@ html {
     box-sizing: border-box;
     padding   : 0;
     min-width : 320px;
+    height: 100%;
 
 
     body {
@@ -40,144 +41,256 @@ html {
     .root {
         height             : 100%;
         margin: 0 auto;
+        
         width              : 100%;
         opacity: 1;
         box-sizing         : border-box;
         position           : absolute;
         top                : 0;
         left               : 0;
-
-        .root-content {
-            height    : 100%;
-            box-sizing: border-box;
-            max-width: 640px;
-            font-family: '思源黑体 CN Bold Bold', "Microsoft Yahei";
-            margin: 0 auto;
-            padding: 0 0.36rem;
-            width     : 100%;
-            overflow  : hidden;
-            .icon-wrap {
-                left: 0.14rem;
-                bottom: 0.14rem;
-                position: absolute;
-            }
-            .icon {
-                width     : 0.36rem;
-                display: block;
-                margin: 0.32rem auto 0;
-                height    : 0.36rem;
-            }
-            .title {
-                color:#FFCE82;
-                overflow: hidden;
-                width: 0.9rem;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                margin: 0.07rem auto 0;
-                @media screen and (max-width: 460px) {
-                    width: 1.2rem;
-                }
-                font-size: 0.14rem;
-                
-            }
-            .desc {
-                color:#FFCE82;
-                font-size: 0.28rem;
-                text-align: center;
-                width: 3.5rem;
-                line-height: 0.53rem;
-                display: box;
-                padding: 0.44rem 0 0 0 ;
+       
+        &.landscape {
+            .content {
+                width: 100%;
                 margin: 0 auto;
-                margin-bottom: 0.15rem;
-                overflow: hidden;
-                // display: -webkit-box;
-                // -webkit-line-clamp: 2;
-                min-height: 1.1rem;
-                max-height: 1.6rem;
-                // line-clamp: 2;
-                -webkit-box-orient: vertical;
-                box-orient: vertical;
-                font-weight: bold;
             }
-            .go {
-                position: relative;
-                width: 1.32rem;
-                height: 1.32rem;
-                margin:0 auto;
-                background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_1.png.png') no-repeat center;
-                background-size: 100%;
-                animation: scaleDraw ease-in-out infinite 2000ms;
-                &.g0 {
-                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_2.png.png') no-repeat center;
-                    background-size: 100%;
-                }
-
-                &.g1 {
-                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button1_3.png.png') no-repeat center;
-                    background-size: 100%;
-                }
-                &.g2 {
-                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_4.png.png') no-repeat center;
-                    background-size: 100%;
-                }
-            }
-
-            .close-box {
-                height: 0.98rem;
+            .root-content {
+                height    : 100%;
                 box-sizing: border-box;
-                padding-top: 0.3rem;
-            }
-            .close-btn {
-                width: 0.40rem;
-                height: 0.40rem;
-                display: block;
+                max-width: 3.2rem;
                 
-            }
-
-            .base-Box {
-                position: relative;
-                height: 3.6rem;
+                font-family: '思源黑体 CN Bold Bold', "Microsoft Yahei";
+                margin: 0 auto;
+                padding: 0 0.1rem;
                 width     : 100%;
-                background-repeat  : no-repeat;
-                background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/A_BG (1).png.png') no-repeat center;
-                background-size: 100% 98%;
+                overflow  : hidden;
+               
+                .icon-wrap {
+                    left: 0.14rem;
+                    bottom: 0.14rem;
+                    max-width: 0.9rem;
+                    @media screen and (max-width: 460px) {
+                        max-width: 1.2rem;
+                    }
+                    position: absolute;
+                }
+                .icon {
+                    width     : 0.2rem;
+                    display: block;
+                    margin: 0.32rem auto 0;
+                    height    : 0.2rem;
+                }
+                .title {
+                    color:#FFCE82;
+                    overflow: hidden;
+                    
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin: 0.07rem auto 0;
+                    
+                    font-size: 0.14rem;
+                    
+                }
+                .desc {
+                    color:#FFCE82;
+                    font-size: 0.2rem;
+                    text-align: center;
+                    width: 2rem;
+                    line-height: 0.28rem;
+                    display: box;
+                    padding: 0.3rem 0 0 0 ;
+                    margin: 0 auto;
+                    margin-bottom: 0.15rem;
+                    overflow: hidden;
+                    // display: -webkit-box;
+                    // -webkit-line-clamp: 2;
+                    min-height: 0.6rem;
+                    max-height: 0.82rem;
+                    // line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    box-orient: vertical;
+                    font-weight: bold;
+                }
+                .go {
+                    position: relative;
+                    width: 0.74rem;
+                    height: 0.74rem;
+                    margin:0 auto;
+                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_1.png.png') no-repeat center;
+                    background-size: 100%;
+                    animation: scaleDraw ease-in-out infinite 1200ms;
+                    &.g0 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_2.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+    
+                    &.g1 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button1_3.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+                    &.g2 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_4.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+                    &.g3 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20200109/button_2.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+                }
+    
+                .close-box {
+                    height: 0.48rem;
+                    box-sizing: border-box;
+                    padding-top: 0.17rem;
+                }
+                .close-btn {
+                    width: 0.26rem;
+                    height: 0.26rem;
+                    display: block;
+                    
+                }
+    
+                .base-Box {
+                    position: relative;
+                    height: 2.2rem;
+                    width     : 100%;
+                    background-repeat  : no-repeat;
+                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/A_BG (1).png.png') no-repeat center;
+                    background-size: 100% 98%;
+                }
+                .litter-icon {
+                    width: 0.14rem;
+                    height: 0.14rem;
+                    position: absolute;
+                    right: 0.1rem;
+                    bottom: 0.1rem;
+    
+                }
             }
-            .litter-icon {
-                width: 0.25rem;
-                height: 0.25rem;
-                position: absolute;
-                right: 0.14rem;
-                bottom: 0.14rem;
-
+    
+        }
+        &.portrait {
+            .content {
+                width: 100%;
+                margin: 50% auto 0;
             }
-        }
-
-        // @media screen and (min-device-height: 800px) and (max-device-width: 470px) {
-        //     padding: 44px 0 34px 0;
-        // }
-
-        // @media screen and (min-device-width: 800px) and (max-device-height: 600px) {
-        //     padding: 0 34px 0 44px;
-        // }
-
-    }
-
-
-
-    @media all and (orientation : landscape) {
-        .root {
-          
-
-
-        }
-    }
-
-    @media all and (orientation : portrait) {
-        .root {
+            .root-content {
+                height    : 100%;
+                box-sizing: border-box;
+                max-width: 640px;
+                font-family: '思源黑体 CN Bold Bold', "Microsoft Yahei";
+                margin: 0 auto;
+                padding: 0 0.36rem;
+                width     : 100%;
+                overflow  : hidden;
+                .icon-wrap {
+                    left: 0.14rem;
+                    bottom: 0.14rem;
+                    max-width: 0.9rem;
+                    @media screen and (max-width: 460px) {
+                        max-width: 1.2rem;
+                    }
+                    position: absolute;
+                }
+                .icon {
+                    width     : 0.36rem;
+                    display: block;
+                    margin: 0.32rem auto 0;
+                    height    : 0.36rem;
+                }
+                .title {
+                    color:#FFCE82;
+                    overflow: hidden;
+                    
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin: 0.07rem auto 0;
+                    
+                    font-size: 0.14rem;
+                    
+                }
+                .desc {
+                    color:#FFCE82;
+                    font-size: 0.28rem;
+                    text-align: center;
+                    width: 4rem;
+                    line-height: 0.53rem;
+                    display: box;
+                    padding: 0.44rem 0 0 0 ;
+                    margin: 0 auto;
+                    margin-bottom: 0.15rem;
+                    overflow: hidden;
+                    // display: -webkit-box;
+                    // -webkit-line-clamp: 2;
+                    min-height: 1.1rem;
+                    max-height: 1.6rem;
+                    // line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    box-orient: vertical;
+                    font-weight: bold;
+                }
+                .go {
+                    position: relative;
+                    width: 1.32rem;
+                    height: 1.32rem;
+                    margin:0 auto;
+                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_1.png.png') no-repeat center;
+                    background-size: 100%;
+                    animation: scaleDraw ease-in-out infinite 1200ms;
+                    &.g0 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_2.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+    
+                    &.g1 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button1_3.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+                    &.g2 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/button_4.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+                    &.g3 {
+                        background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20200109/button_2.png.png') no-repeat center;
+                        background-size: 100%;
+                    }
+                }
+    
+                .close-box {
+                    height: 0.98rem;
+                    box-sizing: border-box;
+                    padding-top: 0.3rem;
+                }
+                .close-btn {
+                    width: 0.40rem;
+                    height: 0.40rem;
+                    display: block;
+                    
+                }
+    
+                .base-Box {
+                    position: relative;
+                    height: 3.6rem;
+                    width     : 100%;
+                    background-repeat  : no-repeat;
+                    background: url('http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/A_BG (1).png.png') no-repeat center;
+                    background-size: 100% 98%;
+                }
+                .litter-icon {
+                    width: 0.25rem;
+                    height: 0.25rem;
+                    position: absolute;
+                    right: 0.14rem;
+                    bottom: 0.14rem;
+    
+                }
+            }
             
-
         }
     }
+   
+
 
 }

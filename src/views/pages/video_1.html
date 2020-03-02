@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{title}}</title>
+    <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta name="renderer" content="webkit">
     <meta charset='utf-8'>
@@ -16,34 +16,42 @@
     <!-- 忽视电话识别 -->
     <meta name="format-detection" content="telphone=no, email=no" />
     <script>
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+
         function setFontSize(designWidth, minWidth, maxWidth) {
-            var htmlEl = document.documentElement,
+            var htmlEl = document.documentElement || document.body,
                 momentWith = 0;
             momentWith =
                 htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+            if (!htmlEl.clientWidth) momentWith = 375;
             momentWith = momentWith < minWidth ? minWidth : momentWith;
             htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
         }
-        setFontSize(320, 200, 640);
+        setFontSize(640, 200, 640);
         window.addEventListener('resize', function() {
             setTimeout(function() {
-                setFontSize(320, 200, 640);
-            }, 100)
-        });
+                if (document.getElementById("root")) {
+                    if (window.innerWidth > window.innerHeight) {
+                        document.getElementById("root").className = 'root landscape';
+                    } else {
+                        document.getElementById("root").className = 'root portrait';
+                    };
 
-        function onOk(event) {
-            try {
-                window.location = 'video://retain.download';
-                banBubbles(event)
-            } catch (err) {}
-        }
+                };
+                setFontSize(640, 200, 640);
+            }, 300);
+        });
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 200);
 
         function onCancel(event) {
             try {
                 window.location = 'video://close';
-                banBubbles(event)
-            } catch (err) {}
-        }
+                banBubbles(event);
+            } catch (err) {};
+        };
 
         function banBubbles(e) {
             try {
@@ -52,31 +60,110 @@
                     ev.stopPropagation();
                 } else {
                     ev.cancelBubble = true;
-                }
-            } catch (err) {}
+                };
+            } catch (err) {};
         }
     </script>
 </head>
 
 <body>
 
-    <div class="root">
+    <div class="root" id="root">
         <div class="root-content">
             <!-- template -->
-            <img id="icon" class="icon" src="http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191204/emoji.png.png" alt="icon" />
-            <div class="desc">
-                <div>
-                    亲，您真的不想下载安装体验下吗~
+            <div id="content">
+                <img id="icon" class="icon" src="" alt="icon" />
+                <img id="icon2" class="icon2" src="" alt="icon" />
+                <div class="desc">
+                    <div id="desc">
+
+                    </div>
+                </div>
+                <div class="button-group">
+                    <div onclick="onOk(event)" class="button" id="button">马上安装</div>
                 </div>
             </div>
-            <div class="button-group">
-                <div onclick="onCancel(event)" class="button cancel">不了</div>
-                <div onclick="onOk(event)" class="button">查看</div>
-            </div>
             <!-- template -->
+
         </div>
     </div>
 
 </body>
+<script>
+    function getTmpInfo(option) {
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+        document.getElementById('desc').innerText = option.desc;
+        var button = document.getElementById('button');
+        button.innerText = option.buttonText;
+        button.setAttribute('data-link', option.link);
+        var com = document.getElementById('icon');
+        var com2 = document.getElementById('icon2');
+        if (option.type == 0) {
+            var icon = document.createElement('img');
+            icon.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191204/emoji.png.png";
+            com2.style.display = "none";
+            com.style.display = "block";
+            icon.onload = function() {
+                com.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191204/emoji.png.png";
+            };
+
+        } else if (option.type == 1) {
+            var icon2 = document.createElement('img');
+            icon2.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191220/emoji@2x.png.png";
+            com.style.display = "none";
+            com2.style.display = "block";
+            icon2.onload = function() {
+                com2.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191220/emoji@2x.png.png";
+            };
+        };
+        var root = document.getElementById('root');
+        var content = document.getElementById('content');
+        button.innerText = option.buttonText;
+        root.style.backgroundImage = 'url(' + option.background + ')';
+        if (option.device == 'landscape') {
+            root.className = "root landscape"
+        } else {
+            root.className = "root portrait"
+        }
+        button.onclick = function(event) {
+            if (option.clickType == 2) {
+                window.location = option.link;
+                event.stopPropagation();
+            }
+        };
+        content.onclick = function(event) {
+            if (option.clickType == 1) {
+                window.location = option.link;
+            }
+        };
+        root.onclick = function(event) {
+            if (option.clickType == 3) {
+                try {
+                    window.location = option.link;
+                } catch (err) {};
+            }
+
+        };
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 200);
+    };
+
+
+    /** 数据填充
+     *     
+      // getTmpInfo({
+          clickType: 1, // 1 全局可点， 2按钮可点 3全屏可点
+          device: "portrait", // landscape || portrait
+    //     link: "video://retain.download",
+    //     type: "1",
+    //     buttonText: "马上安装",
+    //     desc: '亲，您真的不想下载安装体验下吗~',
+    // })
+     
+ 
+    */
+</script>
 
 </html>

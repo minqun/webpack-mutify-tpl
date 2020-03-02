@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>ad</title>
+    <title>H5调用方式 - sdk</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta name="renderer" content="webkit">
     <meta charset='utf-8'>
@@ -16,24 +16,66 @@
     <!-- 忽视电话识别 -->
     <meta name="format-detection" content="telphone=no, email=no" />
 </head>
+<script>
+    // 注： H5 只需要调用 加载及展示接口 - 需要提供上报sdk方法
+    //  placementId 由运营给到
+    //加载广告
+    var placementId = '18066_04525';
+    window.android.loadRewardAd(placementId);
+
+    //当广告加载失败时回调
+    function onError(placementId) {};
+    //当广告加载完成后回调(这个回调之后可调原生接口showRewardAd展示广告)
+    function onLoaded(placementId) {
+        //展示广告
+        window.android.showRewardAd(placementId);
+    };
+    //当广告展示时回调
+    function onShowed(placementId) {
+        console.log("展示时回调");
+    };
+    //当广告被关闭时回调
+    function onClosed(placementId) {
+        console.log("关闭时回调");
+    };
+    //当广告播放结束后回调
+    function onVideoComplete(placementId) {
+        console.log("播放结束后回调");
+    };
+    //当广告开始下载时回调（下载类广告时回调）
+    function onDownloadStarted(placementId) {
+        console.log("下载时回调");
+    };
+    //当广告下载完成后回调（下载类广告时回调）
+    function onDownloadFinished(placementId) {
+        console.log("完成后回调");
+    };
+    //当广告安装后回调（下载类广告时回调）
+    function onInstalled(placementId) {
+        console.log("安装后回调");
+    };
+    /** sdk 接口
+        //原生回调h5的接口
+        webView.loadUrl("javascript:onError(placementId)"); //当广告加载失败时回调
+            webView.loadUrl("javascript:onLoaded(placementId)");//当广告加载完成后回调(这个回调之后可调原生接口showRewardAd展示广告)
+            webView.loadUrl("javascript:onShowed(placementId)");//当广告展示时回调
+            webView.loadUrl("javascript:onClosed(placementId)");//当广告被关闭时回调
+            webView.loadUrl("javascript:onVideoComplete(placementId)");//当广告播放结束后回调
+            webView.loadUrl("javascript:onDownloadStarted(placementId)");//当广告开始下载时回调（下载类广告时回调）
+            webView.loadUrl("javascript:onDownloadFinished(placementId)");//当广告下载完成后回调（下载类广告时回调）
+            webView.loadUrl("javascript:onInstalled(placementId)");//当广告安装后回调（下载类广告时回调）
+
+            //原生暴露给h5的接口
+            public void loadRewardAd (String placementId) //加载广告
+            public void showRewardAd (String placementId) //展示广告
+    */
+</script>
 
 <body>
-
-    <div class="root">
-        <div class="root-content">
-            <!-- template -->
-            模板编译webpack-gulp
-            <p>gulp</p>
-
-            <p>gulp</p>
-            <p>gulp</p>
-            <p>gulp</p>
-            <button>123</button>
-            <!-- template -->
-        </div>
+    <div>
+        H5调用方式 - sdk
     </div>
 
-    <script src="https://zeptojs.com/zepto.min.js" inline></script>
 </body>
 
 </html>

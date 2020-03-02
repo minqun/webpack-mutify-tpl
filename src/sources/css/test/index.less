@@ -9,13 +9,17 @@ html {
     body {
         height: 100%;
         width: 100%;
+        // background: rgb(15, 14, 14);
         margin: 0;
         box-sizing: border-box;
-        padding: 0;
+        padding: 20% 0 0 0;
         min-width: 320px;
         position: relative;
 
 
+    }
+    * {
+      box-sizing: border-box;
     }
 
     .root {
@@ -50,14 +54,23 @@ html {
 
     @media all and (orientation : landscape) {
         .root {
-            background: red;
         }
     }
 
     @media all and (orientation : portrait) {
         .root {
-            background: green;
         }
     }
 
+}
+.box {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  background: chocolate;
+}
+#step {
+  border-radius:50%;
+  width: 20px;
+  height: 20px;
 }

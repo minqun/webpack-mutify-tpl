@@ -1,0 +1,101 @@
+html {
+    height    : 100%;
+    width     : 100%;
+    margin    : 0;
+    box-sizing: border-box;
+    padding   : 0;
+    min-width : 320px;
+
+
+    body {
+        height    : 100%;
+        width     : 100%;
+        margin    : 0;
+        box-sizing: border-box;
+        padding   : 0;
+        min-width : 320px;
+        position  : relative;
+        font-size: 14px;
+      
+    }
+
+    .root {
+        height             : 100%;
+        width              : 100%;
+        
+        box-sizing         : border-box;
+        position           : absolute;
+        top                : 0;
+        left               : 0;
+
+        .root-content {
+            height    : 100%;
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.5);
+            width     : 100%;
+            font-family: '思源黑体 CN Bold Bold', "Microsoft Yahei";
+            overflow  : auto;
+            
+            @media screen and (min-device-height: 800px) and (max-device-width: 470px) {
+                padding: 44px 0 34px 0;
+            }
+    
+            @media screen and (min-device-width: 800px) and (max-device-height: 600px) {
+                padding: 0 34px 0 44px;
+            }
+            
+        }
+       
+        .desc {
+            .title-box {
+                width: 4.26rem;
+                margin: 0 auto 0.28rem;
+                height: 0.64rem;
+                position: relative;
+                .icon {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0.64rem;
+                    height: 0.64rem;
+                }
+                .title-desc {
+                    color: #fff;
+                    padding-left: 0.78rem;
+                    line-height: 0.28rem;
+                    text-overflow: -o-ellipsis-lastline;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+            }
+            width:4.98rem;
+            min-height: 3.5rem;
+            margin: 50% auto 0;
+            #img {
+                width: 100%;
+                height: auto;
+                border-radius:0.11rem;
+            }
+        }
+        .button {
+            width:0.43rem;
+            height: 0.43rem;
+            margin: 0.43rem auto 0;
+
+        }
+        #button {
+            width:0.43rem;
+            height: 0.43rem;
+        }
+        
+
+    }
+
+
+
+
+}

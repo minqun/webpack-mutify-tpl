@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 兼容旧手机 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 点击无高亮 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- iphone隐藏工具菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 忽视电话识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <script>
+    </script>
+</head>
+
+<body>
+
+    <div class="root" id="root">
+
+    </div>
+
+</body>
+<script>
+    function getTmpInfo(option) {
+        var root = document.getElementById('root');
+        root.style.backgroundImage = 'url(' + option.background + ')';
+        root.onclick = function(event) {
+            try {
+                window.location = option.link;
+            } catch (err) {};
+        };
+
+    };
+
+
+
+    /** 数据填充
+     *  getTmpInfo({
+        background: 'http://b-ssl.duitang.com/uploads/item/201712/11/20171211230941_N8Ef4.thumb.700_0.jpeg', //背景图片
+        link: '跳转链接'
+    });
+    getTmpInfo({
+        icon: 'icon地址',
+        imgUrl: "图片地址",
+        title: '标题',
+        desc: '描述',
+        type: 1, 类型切换 0:立即下载 1:马上安装 2:立即查看 
+        background: '', //背景图片
+        link: '跳转链接'
+    })
+    */
+</script>
+
+
+</html>

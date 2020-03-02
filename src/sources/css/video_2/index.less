@@ -26,36 +26,81 @@ html {
         background-position: 50% 50%;
         background-repeat: no-repeat;
         box-sizing: border-box;
-        background: rgba(255, 255, 255, 1);
-        opacity: 0.9;
+        background-color: rgba(0, 0, 0, 0.5);
         position: absolute;
         top: 0;
         left: 0;
-        .icon {
-            margin: 0.49rem auto 0;
-            display: block;
-            width: 0.68rem;
-            height: 0.68rem;
+        &.landscape {
+            #content {
+                margin: 0.6rem auto;
+                background-color: rgba(255, 255, 255, 0.9);
+                height: 2.4rem;
+                box-sizing: border-box;
+                padding-top: 0.48rem;
+                width: 3.6rem;
+            }
+            .icon {
+                margin: 0 auto 0;
+                display: block;
+                width: 0.68rem;
+                height:  0.68rem;
+            }
+            
+            .desc {
+                text-align: center;
+                margin: 0.25rem auto 0;
+                width: 3.2rem;
+                height: 0.24rem;
+                font-size: 0.14rem;
+                font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+                font-weight: 400;
+                color: rgba(57, 57, 57, 1);
+                line-height: 0.22rem;
+            }
+    
+            .root-content {
+                height: 100%;
+                box-sizing: border-box;
+                width: 100%;
+                overflow: auto;
+            }
         }
-        
-        .desc {
-            text-align: center;
-            margin: 0.14rem auto 0;
-            width: 3rem;
-            height: 0.24rem;
-            font-size: 0.14rem;
-            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
-            font-weight: 400;
-            color: rgba(57, 57, 57, 1);
-            line-height: 0.24rem;
+        &.portrait {
+            #content {
+                margin: 50% auto;
+                background-color: rgba(255, 255, 255, 0.9);
+                height: 4.27rem;
+                box-sizing: border-box;
+                padding-top: 0.82rem;
+                width: 100%;
+            }
+            .icon {
+                margin: 0 auto 0;
+                display: block;
+                width: 1.21rem;
+                height: 1.21rem;
+            }
+            
+            .desc {
+                text-align: center;
+                margin: 0.25rem auto 0;
+                width: 4.62rem;
+                height: 0.24rem;
+                font-size: 0.25rem;
+                font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+                font-weight: 400;
+                color: rgba(57, 57, 57, 1);
+                line-height: 0.4rem;
+            }
+    
+            .root-content {
+                height: 100%;
+                box-sizing: border-box;
+                width: 100%;
+                overflow: auto;
+            }
         }
-
-        .root-content {
-            height: 100%;
-            box-sizing: border-box;
-            width: 100%;
-            overflow: auto;
-        }
+       
 
         
 

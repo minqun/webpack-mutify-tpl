@@ -25,8 +25,7 @@ html {
         background-size    : 100%;
         background-position: 50% 50%;
         background-repeat  : no-repeat;
-        background: rgba(255, 255, 255, 1);
-        opacity: 0.9;
+        background-color: rgba(0, 0, 0, 0.5);
         box-sizing         : border-box;
         position           : absolute;
         top                : 0;
@@ -38,68 +37,145 @@ html {
             width     : 100%;
             overflow  : auto;
         }
-        .icon {
-            width     : 0.68rem;
-            display: block;
-            margin: 0.32rem auto 0;
-            height    : 0.68rem;
-        }
-
-        .title {
-            width      : 2.8rem;
-            overflow   : hidden;
-            margin: 0.12rem auto 0;
-            text-align : center;
-            height     : 0.22rem;
-            font-size  : 0.18rem;
-            line-height: 0.22rem;
-            font-family: SourceHanSansCN-Bold, SourceHanSansCN;
-            font-weight: bold;
-            color      : rgba(57, 57, 57, 1);
-        }
-
-        .desc {
-            text-align : center;
-            margin: 0.08rem auto 0;
-            width      : 2.8rem;
-            height     : 0.48rem;
-            font-size  : 0.13rem;
-            font-weight: 400;
-            color      : rgba(122, 122, 122, 1);
-            line-height: 0.22rem;
-            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
-        }
-
-        .desc {
-            div {
-                display           : -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow          : hidden;
+        
+       
+            
+        &.portrait {
+            #content {
+                margin: 50% auto;
+                background-color: rgba(255, 255, 255, 0.9);
+                height: 5.53rem;
+                box-sizing: border-box;
+                padding-top: 0.53rem;
+                width: 100%;
+            }
+            .icon {
+                width     : 1.2rem;
+                display: block;
+                margin: 0 auto 0;
+                height    : 1.2rem;
+            }
+    
+            .title {
+                width      : 2.8rem;
+                overflow   : hidden;
+                margin: 0.21rem auto 0;
+                text-align : center;
+                font-size  : 0.32rem;
+                line-height: 0.40rem;
+                font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+                font-weight: bold;
+                color      : rgba(57, 57, 57, 1);
+            }
+    
+            .desc {
+                text-align : center;
+                margin: 0.08rem auto 0;
+                width      : 4.98rem;
+                height     : 0.85rem;
+                font-size  : 0.23rem;
+                font-weight: 400;
+                color      : rgba(122, 122, 122, 1);
+                line-height: 0.39rem;
+                font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+            }
+    
+            .desc {
+                div {
+                    display           : -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow          : hidden;
+                }
+            }
+    
+            .button {
+                margin    : 0.57rem auto 0;
+                display        : block;
+                text-align    : center;
+                line-height: 0.82rem;
+                font-size      : 0.32rem;
+                font-family    : Roboto-Medium, Roboto;
+                font-weight    : 500;
+                color          : rgba(255, 255, 255, 1);
+                width          : 4.98rem;
+                height         : 0.82rem;
+                background     : linear-gradient(90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
+                border-radius  : 0.49rem;
             }
         }
 
-        .button {
-            margin    : 0.32rem auto 0;
-            display        : flex;
-            align-items    : center;
-            justify-content: center;
-            font-size      : 0.18rem;
-            font-family    : Roboto-Medium, Roboto;
-            font-weight    : 500;
-            color          : rgba(255, 255, 255, 1);
-            width          : 2.8rem;
-            height         : 0.46rem;
-            background     : linear-gradient(90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
-            border-radius  : 0.24rem;
+        &.landscape {
+            #content {
+                margin: 0.3rem auto;
+                background-color: rgba(255, 255, 255, 0.9);
+                height: 3rem;
+                box-sizing: border-box;
+                padding-top: 0.32rem;
+                width: 3.6rem;
+            }
+            .icon {
+                width     : 0.68rem;
+                display: block;
+                margin: 0rem auto 0;
+                height    : 0.68rem;
+            }
+    
+            .title {
+                width      : 2.8rem;
+                overflow   : hidden;
+                margin: 0.12rem auto 0;
+                text-align : center;
+                font-size  : 0.18rem;
+                line-height: 0.22rem;
+                font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+                font-weight: bold;
+                color      : rgba(57, 57, 57, 1);
+            }
+    
+            .desc {
+                text-align : center;
+                margin: 0.08rem auto 0;
+                width      : 2.8rem;
+                height     : 0.48rem;
+                font-size  : 0.13rem;
+                font-weight: 400;
+                color      : rgba(122, 122, 122, 1);
+                line-height: 0.22rem;
+                font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+            }
+    
+            .desc {
+                div {
+                    display           : -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow          : hidden;
+                }
+            }
+    
+            .button {
+                margin    : 0.32rem auto 0;
+                display        : block;
+                text-align    : center;
+                line-height: 0.46rem;
+                font-size      : 0.18rem;
+                font-family    : Roboto-Medium, Roboto;
+                font-weight    : 500;
+                color          : rgba(255, 255, 255, 1);
+                width          : 2.8rem;
+                height         : 0.46rem;
+                background     : linear-gradient(90deg, rgba(255, 129, 50, 1) 23%, rgba(255, 61, 50, 1) 100%);
+                border-radius  : 0.24rem;
+            }
         }
-
-
+       
       
 
     }
 
-
+  
+    
 
     
 

@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 兼容旧手机 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 点击无高亮 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- iphone隐藏工具菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 忽视电话识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <script>
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+
+        function setFontSize(designWidth, minWidth, maxWidth) {
+            var htmlEl = document.documentElement,
+                momentWith = 0;
+            momentWith =
+                htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+            momentWith = momentWith < minWidth ? minWidth : momentWith;
+            htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
+        }
+        setFontSize(640, 200, 1080);
+        window.addEventListener('resize', function() {
+            setTimeout(function() {
+                setFontSize(640, 200, 1080);
+            }, 100)
+
+        });
+
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 300)
+
+
+
+        function onClose(e) {
+            e.stopPropagation();
+            window.location = 'video://close';
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="root" id="root">
+        <div class="root-content">
+            <!-- template -->
+            <div class="line"></div>
+            <div class="main-box">
+                <div class="desc">
+                    <div id="desc">亲～<br/> 点击查看有惊喜哦~
+                    </div>
+                </div>
+                <div class="button" id="button">
+                    立即查看
+                </div>
+            </div>
+            <!-- template -->
+        </div>
+    </div>
+
+</body>
+<script>
+    function getTmpInfo(option) {
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+        var root = document.getElementById('root');
+        var button = document.getElementById('button');
+        button.onclick = function(event) {
+            try {
+                window.location = option.link;
+            } catch (err) {};
+        };
+
+
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 300);
+    }
+
+
+
+    /** 数据填充
+     *   getTmpInfo({
+        link: '跳转链接'
+    });
+    getTmpInfo({
+        link: '跳转链接'
+    })
+    */
+</script>
+
+
+</html>

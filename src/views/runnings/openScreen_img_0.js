@@ -1,0 +1,1 @@
+import name from "@source/css/openScreen_img_0";

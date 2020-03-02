@@ -1,0 +1,734 @@
+html {
+    height    : 100%;
+    width     : 100%;
+    margin    : 0;
+    box-sizing: border-box;
+    padding   : 0;
+    min-width : 320px;
+
+    @delay: 0s;
+    body {
+        height    : 100%;
+        width     : 100%;
+        margin    : 0 auto;
+        box-sizing: border-box;
+        padding   : 0;
+        min-width : 320px;
+
+      
+        position  : relative;
+        font-size : 14px;
+
+    }
+
+    .root {
+        height             : 100%;
+        width              : 100%;
+        background-size    : 100%;
+        background-repeat  : no-repeat;
+        overflow: hidden;
+        background-size: 100%;
+        background-position: top center; 
+        box-sizing         : border-box;
+        position           : absolute;
+        top                : 0;
+        left               : 0;
+
+       &.portrait {
+        @keyframes ddFram {
+            0% {
+                transform: rotate(0);
+            }
+            25% {
+                transform: rotate(3deg);
+            }
+            50% {
+                transform: rotate(0);
+            }
+            75% {
+                transform: rotate(-3deg);
+            }
+            100% {
+                transform: rotate(0);
+            }
+           
+        }
+        
+        .hb-box {
+            position: absolute;
+            transform: rotate(20deg);
+            top: -250px;
+            left: 100px;
+            z-index:10;
+            .l {
+                position: relative;
+               
+            }
+            .line1{
+                transform: scale(0.6) ;
+                left: 400px;
+                animation: clipMe1 4s linear infinite;
+                
+            }
+            .line2{
+                transform: scale(0.8) ;
+                left: 200px;
+                animation: clipMe2 5s linear infinite;
+            }
+            .o1 {
+                transform: scale(1) ;
+                left: -30px;
+        
+                animation: clipMe2 3s linear infinite;
+            }
+            .o2 {
+                transform: scale(0.6) ;
+                left: 60px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .o3 {
+                transform: scale(1) ;
+                left:250px;
+                animation: clipMe2 2s linear infinite;
+            }
+            .o4 {
+                transform: scale(0.7) ;
+                left:-100px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .o5 {
+                transform: scale(1) ;
+                left:-200px;
+                animation: clipMe2 2s linear infinite;
+            }
+            .r1 {
+                transform: scale(0.8) ;
+                left:50px;
+                animation: clipMe2 3s linear infinite;
+            }
+         
+            .r3 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .r9 {
+                transform: scale(1) ;
+                left:100px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .r2 {
+                transform: scale(1) ;
+                left:150px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .r10 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 5s linear infinite;
+            }
+            .r11 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 5s linear infinite;
+            }
+            .r8 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .r4 {
+                transform: scale(0.8) ;
+                left:200px;
+                animation: clipMe2 7s linear infinite;
+            }
+            .r5 {
+                transform: scale(1) ;
+                left:205px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .r6 {
+                transform: scale(0.6) ;
+                left:-310px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .r7 {
+                transform: scale(0.8) ;
+                left:50px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .line3{
+                transform: scale(0.8) ;
+                animation: clipMe3 4s linear infinite;
+            }
+       
+            
+        
+        
+            img {
+                width: 0.8rem;
+            }
+        }
+        .hbBox2 {
+            position: absolute;
+            transform: rotate(20deg);
+            top: -250px;
+            left: 100px;
+            z-index:10;
+            .l {
+                position: relative;
+               
+            }
+            .line1{
+                transform: scale(0.4) ;
+                left: 400px;
+                animation: clipMe1 3s linear infinite;
+                
+            }
+            .line2{
+                transform: scale(0.3) ;
+                left: 200px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .o1 {
+                transform: scale(1) ;
+                left: -30px;
+        
+                animation: clipMe2 3s linear infinite;
+            }
+            .o2 {
+                transform: scale(0.6) ;
+                left: 60px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .o3 {
+                transform: scale(1) ;
+                left:250px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .o4 {
+                transform: scale(0.8) ;
+                left:-100px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .o5 {
+                transform: scale(0.8) ;
+                left:-200px;
+                animation: clipMe2 2s linear infinite;
+            }
+            .r1 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .r2 {
+                transform: scale(1) ;
+                left:150px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .r3 {
+                transform: scale(0.8) ;
+                left:50px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .r9 {
+                transform: scale(1) ;
+                left:100px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r10 {
+                transform: scale(1.2) ;
+                left:50px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r11 {
+                transform: scale(0.8) ;
+                left:50px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r8 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r4 {
+                transform: scale(0.8) ;
+                left:200px;
+                animation: clipMe2 10s linear infinite;
+            }
+            .r5 {
+                transform: scale(1) ;
+                left:205px;
+                animation: clipMe2 10s linear infinite;
+            }
+            .r6 {
+                transform: scale(0.6) ;
+                left:-310px;
+                animation: clipMe2 10s linear infinite;
+            }
+            .r7 {
+                transform: scale(1) ;
+                left:50px;
+                animation: clipMe2 7s linear infinite;
+            }
+            .line3{
+                transform: scale(0.6) ;
+                animation: clipMe3 5s linear infinite;
+            }
+        
+            img {
+                width: 0.8rem;
+            }
+        }
+        .hb-box-end {
+            display: none;
+            img {
+                display: none;
+                animation: unset!important;
+            }
+        }
+        
+          @keyframes clipMe1 {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: 1200px;
+           }
+         }
+         @keyframes clipMe2 {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: 1200px;
+           }
+         }
+         @keyframes clipMe3 {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: 1200px;
+           }
+         }
+        .root-content {
+            margin: 0 auto;
+            max-width: 640px;
+            height    : 100%;
+            background-color   : rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            width     : 100%;
+            overflow  : auto;
+        }
+        .box-time3 {
+            .img-banner {
+                width: 5.72rem;
+                display: block;
+                margin: 2.36rem auto 0;
+            }
+            .img-btn {
+                width: 3.56rem;
+                display: block;
+                margin: 0.36rem auto 0;
+                min-height: 0.71rem;
+
+            }
+        }
+
+        .box {
+           
+            position: relative;
+            width           : 100%;
+            position        : relative;
+            // height          : 5.33rem;
+            // padding: 0.25rem 0;
+            // box-sizing: border-box;
+            // margin          : 50% auto;
+            // background-color: rgba(2, 6, 35, 0.4);
+            // border-radius   : 0.14rem;
+        }
+
+        .box-wrap {
+          position: relative;
+          display: none;
+          z-index: 3;
+          margin          : 50% auto;
+            width        : 6.4rem;
+            box-sizing: border-box;
+            height       : 6.12rem;
+            padding-top: 0.36rem;
+
+            background-color   : rgba(255, 255, 255, 0.9);
+            border-radius: 0.14rem;
+        }
+        .down-title {
+            background-size: 100%;
+            background-position: top left;
+            width: 5.76rem;
+            margin: 0 auto;
+            text-align: center;
+            height: 0.73rem;
+            color: rgba(250, 145, 66, 1);
+            font-size: 0.25rem;
+            line-height: 0.6rem;
+            &.lineTo {
+                line-height: 0.78rem;
+            }
+            span {
+                position: relative;
+                top: 0.1rem;
+                font-weight: bold;
+                font-size: 0.5rem;
+                margin: 0 0.18rem;
+                i {
+                    font-style: initial;
+                    margin: 0 0.05rem;
+                }
+            }
+        }
+
+
+        .icon {
+
+            width  : 1.2rem;
+            display: block;
+            margin : 0.41rem auto 0;
+            height : 1.2rem;
+        }
+
+        .title {
+            width      : 2.8rem;
+            overflow   : hidden;
+            margin     : 0.21rem auto 0;
+            text-align : center;
+            font-size  : 0.32rem;
+            line-height: 0.40rem;
+            font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+            font-weight: bold;
+            color      : rgba(57, 57, 57, 1);
+        }
+
+        .desc {
+            text-align : center;
+            margin     : 0.14rem auto 0;
+            width      : 4.98rem;
+            height     : 0.85rem;
+            font-size  : 0.23rem;
+            font-weight: 400;
+            color      : rgba(122, 122, 122, 1);
+            line-height: 0.39rem;
+            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+        }
+
+        .desc {
+            div {
+                display           : -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow          : hidden;
+            }
+        }
+
+        .button {
+            margin       : 0.36rem auto 0;
+            display      : block;
+            width        : 3.56rem;
+            img {
+                width: 100%;
+                min-height: 0.71rem;
+            }
+           
+        }
+      
+        #imgbtn2 {
+            display: none;
+            border-radius: 0.3rem;
+            animation: ddFram 300ms linear infinite ;
+        }
+        #hbBox {
+            border-radius: 0.3rem;
+            display: none;
+        }
+       }
+       &.landscape {
+        @keyframes ddFram {
+            0% {
+                transform: rotate(0);
+            }
+            25% {
+                transform: rotate(3deg);
+            }
+            50% {
+                transform: rotate(0);
+            }
+            75% {
+                transform: rotate(-3deg);
+            }
+            100% {
+                transform: rotate(0);
+            }
+           
+        }
+        
+        .hb-box {
+            position: absolute;
+            transform: rotate(20deg);
+            top: -600px;
+            left: 0px;
+            z-index:10;
+            .l {
+                position: relative;
+               
+            }
+            .line1{
+                transform: scale(0.4) ;
+                left: 400px;
+                animation: clipMe1 3s linear infinite;
+                
+            }
+            .line2{
+                transform: scale(0.3) ;
+                left: 200px;
+                animation: clipMe2 2s linear infinite;
+            }
+            .o1 {
+                transform: scale(0.3) ;
+                left: -30px;
+        
+                animation: clipMe2 3s linear infinite;
+            }
+            .o2 {
+                transform: scale(0.3) ;
+                left: 60px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .o3 {
+                transform: scale(0.4) ;
+                left:250px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .o4 {
+                transform: scale(0.5) ;
+                left:-100px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .o5 {
+                transform: scale(0.2) ;
+                left:-200px;
+                animation: clipMe2 2s linear infinite;
+            }
+            .r1 {
+                transform: scale(0.6) ;
+                left:50px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .r2 {
+                transform: scale(0.5) ;
+                left:150px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .r3 {
+                transform: scale(0.4) ;
+                left:50px;
+                animation: clipMe2 3s linear infinite;
+            }
+            .r9 {
+                transform: scale(0.5) ;
+                left:100px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r10 {
+                transform: scale(0.6) ;
+                left:50px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r11 {
+                transform: scale(0.5) ;
+                left:50px;
+                animation: clipMe2 5s linear infinite;
+            }
+            .r8 {
+                transform: scale(0.7) ;
+                left:50px;
+                animation: clipMe2 8s linear infinite;
+            }
+            .r4 {
+                transform: scale(0.5) ;
+                left:200px;
+                animation: clipMe2 7s linear infinite;
+            }
+            .r5 {
+                transform: scale(0.4) ;
+                left:205px;
+                animation: clipMe2 7s linear infinite;
+            }
+            .r6 {
+                transform: scale(0.3) ;
+                left:-310px;
+                animation: clipMe2 6s linear infinite;
+            }
+            .r7 {
+                transform: scale(0.6) ;
+                left:50px;
+                animation: clipMe2 4s linear infinite;
+            }
+            .line3{
+                transform: scale(0.5) ;
+                animation: clipMe3 5s linear infinite;
+            }
+        
+            
+        
+        
+            img {
+                width: 0.8rem;
+            }
+        }
+        .hbBox2 {
+            position: absolute;
+            left: 300px;
+            transform: rotate(20deg);
+            top: -600px;
+            
+            .line1{
+                transform: scale(0.5) ;
+                left: 100px;
+                animation: clipMe1 2s linear @delay infinite;
+                
+            }
+            .line2{
+                transform: scale(0.6) ;
+                left: 100px;
+                animation: clipMe2 2s linear @delay infinite;
+            }
+            .o1 {
+                transform: scale(0.4) ;
+                left: 0px;
+        
+                animation: clipMe2 2s linear @delay infinite;
+            }
+            .o2 {
+                transform: scale(0.4) ;
+                left: 60px;
+                animation: clipMe2 2s linear @delay infinite;
+            }
+            .o3 {
+                transform: scale(0.4) ;
+                left:100px;
+                animation: clipMe2 3s linear @delay infinite;
+            }
+            .o4 {
+                transform: scale(0.6) ;
+                left:150px;
+                animation: clipMe2 3s linear @delay infinite;
+            }
+            .o5 {
+                transform: scale(0.4) ;
+                left:120px;
+                animation: clipMe2 6s linear @delay infinite;
+            }
+            .r1 {
+                transform: scale(0.7) ;
+                left:50px;
+                animation: clipMe2 5s linear @delay infinite;
+            }
+            .r2 {
+                transform: scale(0.5) ;
+                left:100px;
+                animation: clipMe2 5s linear @delay infinite;
+            }
+            .r3 {
+                transform: scale(0.5) ;
+                left:200px;
+                animation: clipMe2 4s linear @delay infinite;
+            }
+            .r4 {
+                transform: scale(0.6) ;
+                left:150px;
+                animation: clipMe2 2s linear @delay infinite;
+            }
+            .r5 {
+                transform: scale(0.5) ;
+                left:50px;
+                animation: clipMe2 6s linear @delay infinite;
+            }
+            .r8 {
+                transform: scale(0.4) ;
+                left: 110px;
+                animation: clipMe2 7s linear @delay infinite;
+            }
+            .r9 {
+                transform: scale(0.4) ;
+                left:110px;
+                animation: clipMe2 7s linear @delay infinite;
+            }
+            .r6 {
+                transform: scale(0.3) ;
+                left:210px;
+                animation: clipMe2 6s linear @delay infinite;
+            }
+            .r7 {
+                transform: scale(0.4) ;
+                left:50px;
+                animation: clipMe2 6s linear @delay infinite;
+            }
+            .line3{
+                transform: scale(0.3) ;
+                left:80px;
+                animation: clipMe3 3s linear @delay infinite;
+            }
+        }
+        .hb-box-end {
+            display: none;
+            img {
+                display: none;
+                animation: unset!important;
+            }
+        }
+        
+          @keyframes clipMe1 {
+            0% {
+                top: 0;
+            }
+            100% {
+              top: 1600px;
+           }
+         }
+         @keyframes clipMe2 {
+            0% {
+                top: 0;
+            }
+            100% {
+                top: 1600px;
+           }
+         }
+         @keyframes clipMe3 {
+          0% {
+            top: 0;
+            }
+            100% {
+                top: 1600px;
+        }
+         }
+    
+    
+    
+        }
+    
+    
+    }
+    
+        
+
+
+
+
+       
+
+       
+       }
+
+      
+
+

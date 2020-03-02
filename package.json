@@ -6,7 +6,7 @@
         "test": "",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --open",
         "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
-        "inline-tpl": " gulp inline-tpl",
+        "inline-tpl": "cross-env NODE_ENV=production gulp inline-tpl",
         "build-js": "cross-env NODE_ENV=production webpack --config webpack.jsPub.js"
     },
     "repository": {
@@ -65,6 +65,7 @@
         "cross-env": "^6.0.3",
         "cross-spawn": "^7.0.1",
         "gulp": "^4.0.2",
+        "gulp-rename": "^2.0.0",
         "html-webpack-externals-plugin": "^3.8.0",
         "lodash": "^4.17.15",
         "optimize-css-assets-webpack-plugin": "^5.0.3",

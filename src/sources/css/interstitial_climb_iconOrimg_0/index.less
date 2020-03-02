@@ -1,0 +1,224 @@
+html {
+    height    : 100%;
+    width     : 100%;
+    margin    : 0;
+    box-sizing: border-box;
+    padding   : 0;
+    min-width : 320px;
+
+
+    body {
+        height    : 100%;
+        width     : 100%;
+        margin    : 0;
+        box-sizing: border-box;
+        padding   : 0;
+        min-width : 320px;
+        position  : relative;
+        font-size: 14px;
+      
+    }
+
+    .root {
+        height             : 100%;
+        width              : 100%;
+        
+        box-sizing         : border-box;
+        position           : absolute;
+        top                : 0;
+        left               : 0;
+
+        .root-content {
+            height    : 100%;
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.5);
+            width     : 100%;
+            font-family: '思源黑体 CN Bold Bold', "Microsoft Yahei";
+            overflow  : auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            @media screen and (min-device-height: 800px) and (max-device-width: 470px) {
+                padding: 44px 0 34px 0;
+            }
+    
+            @media screen and (min-device-width: 800px) and (max-device-height: 600px) {
+                padding: 0 34px 0 44px;
+            }
+            
+        }
+        
+       
+        &.landscape {
+            .main-box {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                padding: 3% 0;
+                box-sizing: border-box;
+            }
+            .litter-icon {
+                width: 0.14rem;
+                height: 0.14rem;
+                position: absolute;
+                right: 0.1rem;
+                bottom: 0.1rem;
+
+            }
+            
+            .desc {
+                &.noIcon {
+                    margin: 7% auto 0;
+                    
+                }
+                .title-box {
+                    width: 2.4rem;
+                    margin: 0 auto 0.18rem;
+                    height: 0.32rem;
+                    position: relative;
+                    .icon {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0.36rem;
+                        height: 0.36rem;
+                    }
+                    .title-desc {
+                        color: #fff;
+                        padding-left: 0.44rem;
+                        line-height: 0.18rem;
+                        text-overflow: -o-ellipsis-lastline;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+                }
+                width:2.8rem;
+                min-height: 2rem;
+                margin: 0 auto 0;
+                .img {
+                    width: 100%;
+                    max-height: 2.28rem;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius:0.11rem;
+                }
+                #img {
+                    width: 100%;
+                    height: auto;
+                    border-radius:0.06rem;
+                }
+            }
+            
+            .button {
+                width:0.24rem;
+                height: 0.24rem;
+                margin: 0.14rem auto 0;
+    
+            }
+            #button {
+                width:0.24rem;
+                height: 0.24rem;
+            }
+    
+        }
+        &.portrait {
+            .litter-icon {
+                width: 0.25rem;
+                height: 0.25rem;
+                position: absolute;
+                right: 0.14rem;
+                bottom: 0.14rem;
+
+            }
+            
+            .desc {
+                &.mar {
+                    margin-bottom:0;
+                    &.noIcon {
+                    }
+                    .img {
+                        width: 100%;
+                        max-height: 8.5rem;
+                        position: relative;
+                        overflow: hidden;
+                        border-radius:0.11rem;
+                    }
+                    #img {
+                        width: 100%;
+                        height: auto;
+                        border-radius:0.11rem;
+                    }
+                }
+                .title-box {
+                    width: 4.26rem;
+                    margin: 0 auto 0.28rem;
+                    height: 0.64rem;
+                    position: relative;
+                    .icon {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0.64rem;
+                        height: 0.64rem;
+                    }
+                    .title-desc {
+                        color: #fff;
+                        padding-left: 0.78rem;
+                        line-height: 0.28rem;
+                        text-overflow: -o-ellipsis-lastline;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        &.name {
+                            line-height: 0.64rem;
+                        }
+                    }
+                }
+                width:4.98rem;
+                min-height: 3.5rem;
+                margin: 0% auto 0;
+                .img {
+                    width: 100%;
+                    max-height: 4.05rem;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius:0.11rem;
+                }
+                #img {
+                    width: 100%;
+                    height: auto;
+                    border-radius:0.11rem;
+                }
+            }
+            .button {
+                width:0.43rem;
+                height: 0.43rem;
+                margin: 0.43rem auto 0;
+    
+            }
+            #button {
+                width:0.43rem;
+                height: 0.43rem;
+            }
+            
+            
+        }
+        .special {
+            right: 0.4rem!important;
+            bottom: 0.3rem!important;
+        }
+
+    }
+    
+
+
+
+}

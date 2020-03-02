@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 兼容旧手机 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 点击无高亮 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- iphone隐藏工具菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 忽视电话识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <script>
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+
+        function setFontSize(designWidth, minWidth, maxWidth) {
+            var htmlEl = document.documentElement,
+                momentWith = 0;
+            momentWith =
+                htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+            momentWith = momentWith < minWidth ? minWidth : momentWith;
+            htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
+        }
+        setFontSize(640, 200, 1080);
+        window.addEventListener('resize', function() {
+            setTimeout(function() {
+                setFontSize(640, 200, 1080);
+            }, 100)
+
+        });
+
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 300)
+
+
+        function onOk(e) {
+
+            var link = e.target.getAttribute('data-link');
+            try {
+                window.location = link;
+            } catch (err) {}
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="root" id="root" style="background-image: url({{banner}});">
+        <div class="root-content">
+            <!-- template -->
+            <div class="main-box">
+                <div class="title" id="title"></div>
+                <div class="desc" id="desc">
+
+                </div>
+                <div onclick="onOk(event)" id="button" class="button">查看</div>
+            </div>
+            <!-- template -->
+        </div>
+    </div>
+
+</body>
+<script>
+    function getTmpInfo(option) {
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+        var icon = document.createElement('img');
+        var iconUrl = option.icon;
+        if (iconUrl) {
+            icon.src = iconUrl;
+            icon.onload = function() {
+                document.getElementById('icon').src = iconUrl;
+            };
+        }
+
+        document.getElementById('title').innerText = option.title;
+        document.getElementById('desc').innerText = option.desc;
+        var button = document.getElementById('button');
+        var root = document.getElementById('root');
+        root.style.backgroundImage = 'url(' + option.background + ')';
+        button.setAttribute('data-link', option.link);
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 300);
+    }
+
+    /** 数据填充
+    getTmpInfo({
+        icon: 'icon地址',
+        title: '标题',
+        desc: '描述',
+        type: 1, 类型切换 0:立即下载 1:马上安装 2:立即查看 
+        background: '', //背景图片
+        link: '跳转链接'
+    })
+    */
+</script>
+
+</html>

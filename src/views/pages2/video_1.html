@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 兼容旧手机 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 点击无高亮 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- iphone隐藏工具菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 忽视电话识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <script>
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+
+        function setFontSize(designWidth, minWidth, maxWidth) {
+            var htmlEl = document.documentElement,
+                momentWith = 0;
+            momentWith =
+                htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+            momentWith = momentWith < minWidth ? minWidth : momentWith;
+            htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
+        }
+        setFontSize(640, 200, 640);
+        window.addEventListener('resize', function() {
+            setTimeout(function() {
+                setFontSize(640, 200, 640);
+            }, 100);
+        });
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 200);
+
+        function onOk(event) {
+            var link = event.target.getAttribute('data-link');
+            try {
+                window.location = link;
+            } catch (err) {};
+        }
+
+        function onCancel(event) {
+            try {
+                window.location = 'video://close';
+                banBubbles(event);
+            } catch (err) {};
+        };
+
+        function banBubbles(e) {
+            try {
+                var ev = e || window.event;
+                if (ev && ev.stopPropagation) {
+                    ev.stopPropagation();
+                } else {
+                    ev.cancelBubble = true;
+                };
+            } catch (err) {};
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="root">
+        <div class="root-content">
+            <!-- template -->
+            <img id="icon" class="icon" src="" alt="icon" />
+            <img id="icon2" class="icon2" src="" alt="icon" />
+            <div class="desc">
+                <div id="desc">
+
+                </div>
+            </div>
+            <div class="button-group">
+                <div onclick="onOk(event)" class="button" id="button">马上安装</div>
+            </div>
+            <!-- template -->
+        </div>
+    </div>
+
+</body>
+<script>
+    function getTmpInfo(option) {
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+        document.getElementById('desc').innerText = option.desc;
+        var button = document.getElementById('button');
+        button.innerText = option.buttonText;
+        button.setAttribute('data-link', option.link);
+        if (option.type == 0) {
+            var icon = document.createElement('img');
+            icon.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191204/emoji.png.png";
+
+            icon.onload = function() {
+                var com = document.getElementById('icon');
+                document.getElementById('icon').src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191204/emoji.png.png";
+                com.style.display = "block";
+            };
+
+        } else if (option.type == 1) {
+            var icon2 = document.createElement('img');
+            icon2.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191220/emoji@2x.png.png";
+            icon2.style.display = "block";
+            icon2.onload = function() {
+                var com = document.getElementById('icon2');
+                com.src = "http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191220/emoji@2x.png.png";
+                com.style.display = "block";
+            };
+        };
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 200);
+    };
+
+    getTmpInfo({
+            link: "video://retain.download",
+            type: "0",
+            buttonText: "马上安装",
+            desc: '亲，您真的不想下载安装体验下吗~',
+        })
+        /** 数据填充
+         *     getTmpInfo({
+            link: "video://retain.download",
+            type: "1",
+            buttonText: "打开体验",
+            desc: '动动手指，打开体验下吧！',
+        });
+          // getTmpInfo({
+        //     link: "video://retain.download",
+        //     type: "1",
+        //     buttonText: "马上安装",
+        //     desc: '亲，您真的不想下载安装体验下吗~',
+        // })
+         
+        getTmpInfo({
+            icon: 'icon地址',
+            type: "0", // 0 马上安装  1，打开体验
+            link: "video://retain.download",
+            title: '标题',
+            buttonText: "按钮文案",
+            desc: '描述',
+        })
+        */
+</script>
+
+</html>

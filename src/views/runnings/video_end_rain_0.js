@@ -1,0 +1,1 @@
+import name from "@source/css/video_end_rain_0";

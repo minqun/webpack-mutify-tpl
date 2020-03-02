@@ -1,0 +1,173 @@
+html {
+    height    : 100%;
+    width     : 100%;
+    margin    : 0;
+    box-sizing: border-box;
+    padding   : 0;
+    min-width : 320px;
+
+
+    body {
+        height    : 100%;
+        width     : 100%;
+        margin    : 0;
+        box-sizing: border-box;
+        padding   : 0;
+        min-width : 320px;
+        position  : relative;
+        font-size : 14px;
+
+    }
+
+    .root {
+        height: 100%;
+        width : 100%;
+
+        box-sizing: border-box;
+        position  : absolute;
+        top       : 0;
+        left      : 0;
+
+        &.landscape {
+            .root-content {
+                height          : 100%;
+                box-sizing      : border-box;
+                background-color: rgba(0, 0, 0, 0.5);
+                width           : 100%;
+                font-family     : '思源黑体 CN Bold Bold', "Microsoft Yahei";
+                overflow        : auto;
+    
+                @media screen and (min-device-height: 800px) and (max-device-width: 470px) {
+                    padding: 44px 0 34px 0;
+                }
+    
+                @media screen and (min-device-width: 800px) and (max-device-height: 600px) {
+                    padding: 0 34px 0 44px;
+                }
+    
+            }
+            .line {
+                background: rgba(255, 152, 152, 1);
+                width: 0.04rem;
+                margin: 0 auto;
+                height: 1.10rem;
+                z-index: 0;
+                position: relative;
+            }
+    
+            .desc {
+               z-index: 1;
+               position: relative;
+                text-align: center;
+                background: url(http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191223/Little_Surprise.png.png) no-repeat 100% 100%;
+                background-size: 100%;
+                background-position: 50% 50%;
+                width     :2.44rem;
+                max-width: 244px;
+                height: 2.54rem;
+                margin    : -0.65rem auto 0;
+                #desc {
+                    width:1.38rem;
+                    
+                    height:0.84rem;
+                    font-size:0.16rem;
+                    font-weight:bold;
+                    padding-top: 1.3rem;
+                    margin: 0 auto 0;
+                    text-align: center;
+                    color:rgba(255,227,213,1);
+                    line-height:0.2rem;
+                    text-shadow:0px 0.04rem 0.07rem rgba(217,23,25,0.79);
+                }
+    
+            }
+    
+            .button {
+                width        : 1.2rem;
+                height       : 0.36rem;
+                color: #fff;
+                font-size: 0.16rem;
+                margin: 0 auto 0;
+                text-align   : center;
+                line-height  : 0.36rem;
+                background   : linear-gradient(180deg, rgba(255, 105, 106, 1) 0%, rgba(254, 67, 69, 1) 100%);
+                border-radius: 0.43rem;
+            }
+    
+        }
+        &.portrait {
+            .root-content {
+                height          : 100%;
+                box-sizing      : border-box;
+                background-color: rgba(0, 0, 0, 0.5);
+                width           : 100%;
+                font-family     : '思源黑体 CN Bold Bold', "Microsoft Yahei";
+                overflow        : auto;
+    
+                @media screen and (min-device-height: 800px) and (max-device-width: 470px) {
+                    padding: 44px 0 34px 0;
+                }
+    
+                @media screen and (min-device-width: 800px) and (max-device-height: 600px) {
+                    padding: 0 34px 0 44px;
+                }
+    
+            }
+            .line {
+                background: rgba(255, 152, 152, 1);
+                width: 0.04rem;
+                margin: 0 auto;
+                height: 4rem;
+                z-index: 0;
+                position: relative;
+            }
+    
+            .desc {
+               z-index: 1;
+               position: relative;
+                text-align: center;
+                background: url(http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191223/Little_Surprise.png.png) no-repeat 100% 100%;
+                background-size: 100%;
+                background-position: 50% 50%;
+                width     :4.34rem;
+                height: 4.52rem;
+                margin    : -1.05rem auto 0;
+                #desc {
+                    width:2.5rem;
+                    
+                    height:0.84rem;
+                    font-size:0.28rem;
+                    font-weight:bold;
+                    padding-top: 2.2rem;
+                    margin: 0 auto 0;
+                    text-align: center;
+                    color:rgba(255,227,213,1);
+                    line-height:0.36rem;
+                    text-shadow:0px 0.04rem 0.07rem rgba(217,23,25,0.79);
+                }
+    
+            }
+    
+            .button {
+                width        : 2.5rem;
+                height       : 0.64rem;
+                color: #fff;
+                font-size: 0.28rem;
+                margin: 0.25rem auto 0;
+                text-align   : center;
+                line-height  : 0.64rem;
+                background   : linear-gradient(180deg, rgba(255, 105, 106, 1) 0%, rgba(254, 67, 69, 1) 100%);
+                border-radius: 0.43rem;
+            }
+    
+        }
+
+        
+
+
+    }
+
+
+
+
+}

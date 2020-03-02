@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{title}}</title>
+    <title></title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta name="renderer" content="webkit">
     <meta charset='utf-8'>
@@ -16,6 +16,9 @@
     <!-- 忽视电话识别 -->
     <meta name="format-detection" content="telphone=no, email=no" />
     <script>
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+
         function setFontSize(designWidth, minWidth, maxWidth) {
             var htmlEl = document.documentElement,
                 momentWith = 0;
@@ -24,46 +27,90 @@
             momentWith = momentWith < minWidth ? minWidth : momentWith;
             htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
         }
-        setFontSize(640, 200, 1080);
+        setFontSize(640, 200, 640);
         window.addEventListener('resize', function() {
             setTimeout(function() {
-                setFontSize(640, 200, 1080);
-            }, 100)
+                if (document.getElementById("root")) {
+                    if (window.innerWidth > window.innerHeight) {
+                        document.getElementById("root").className = 'root landscape';
+                    } else {
+                        document.getElementById("root").className = 'root portrait';
+                    };
+
+                };
+                setFontSize(640, 200, 640);
+            }, 300)
 
         });
-        var icon = document.createElement('img');
-        var iconUrl = '{{icon}}';
-        if (iconUrl) {
-            icon.src = iconUrl;
-            icon.onload = function() {
-                document.getElementById('icon').src = iconUrl;
-            };
-        }
 
-        function onOk() {
-            try {
-                window.location = '{{click_url}}';
-            } catch (err) {}
-        }
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 300)
     </script>
 </head>
 
 <body>
 
-    <div class="root" style="background-image: url({{banner}});">
+    <div class="root" id="root" style="background-image: url({{banner}});">
         <div class="root-content">
             <!-- template -->
-            <div class="main-box">
-                <div class="title">{{title}}</div>
-                <div class="desc">
-                    {{desc}}
+            <div class="main-box" id="content">
+                <div class="title" id="title"></div>
+                <div class="desc" id="desc">
+
                 </div>
-                <div onclick="onOk(event)" class="button">查看</div>
+                <div id="button" class="button">查看</div>
             </div>
             <!-- template -->
         </div>
     </div>
 
 </body>
+<script>
+    function getTmpInfo(option) {
+        var body = document.body || document.documentElement;
+        body.style.display = 'none';
+
+        document.getElementById('title').innerText = option.title;
+        document.getElementById('desc').innerText = option.desc;
+        var button = document.getElementById('button');
+        var root = document.getElementById('root');
+        var content = document.getElementById('content');
+        root.style.backgroundImage = 'url(' + option.background + ')';
+        button.onclick = function(event) {
+            if (option.clickType == 2) {
+                window.location = option.link;
+                event.stopPropagation();
+            }
+        };
+        content.onclick = function(event) {
+            if (option.clickType == 1) {
+                window.location = option.link;
+            }
+        };
+        root.onclick = function(event) {
+            if (option.clickType == 3) {
+                try {
+                    window.location = option.link;
+                } catch (err) {};
+            }
+
+        };
+        setTimeout(function() {
+            body.style.display = 'block';
+        }, 300);
+    }
+
+
+    /** 数据填充
+   getTmpInfo({
+        clickType: 1, // 1 全局可点， 2按钮可点 3全屏可点
+        title: '标题',
+        desc: '描述',
+        background: '', //背景图片
+        link: '跳转链接'
+    })
+    */
+</script>
 
 </html>
