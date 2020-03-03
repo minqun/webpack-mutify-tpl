@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <title></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-    <meta name="renderer" content="webkit">
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="renderer" content="webkit" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- 兼容旧手机 -->
-    <meta name="HandheldFriendly" content="true">
+    <meta name="HandheldFriendly" content="true" />
     <!-- 点击无高亮 -->
-    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-tap-highlight" content="no" />
     <!-- iphone隐藏工具菜单栏 -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- 忽视电话识别 -->
@@ -22,49 +22,42 @@
         function setFontSize(designWidth, minWidth, maxWidth) {
             var htmlEl = document.documentElement,
                 momentWith = 0;
-            momentWith =
-                htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+            momentWith = htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
             momentWith = momentWith < minWidth ? minWidth : momentWith;
             htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
         }
         setFontSize(640, 200, 640);
         window.addEventListener('resize', function() {
             setTimeout(function() {
-                if (document.getElementById("root")) {
+                if (document.getElementById('root')) {
                     if (window.innerWidth > window.innerHeight) {
-                        document.getElementById("root").className = 'root landscape';
+                        document.getElementById('root').className = 'root landscape';
                     } else {
-                        document.getElementById("root").className = 'root portrait';
-                    };
-
-                };
+                        document.getElementById('root').className = 'root portrait';
+                    }
+                }
                 setFontSize(640, 200, 640);
-            }, 300)
-
+            }, 300);
         });
 
         setTimeout(function() {
             body.style.display = 'block';
-        }, 300)
+        }, 300);
     </script>
 </head>
 
 <body>
-
     <div class="root" id="root" style="background-image: url({{banner}});">
         <div class="root-content">
             <!-- template -->
             <div class="main-box" id="content">
                 <div class="title" id="title"></div>
-                <div class="desc" id="desc">
-
-                </div>
+                <div class="desc" id="desc"></div>
                 <div id="button" class="button">查看</div>
             </div>
             <!-- template -->
         </div>
     </div>
-
 </body>
 <script>
     function getTmpInfo(option) {
@@ -92,15 +85,13 @@
             if (option.clickType == 3) {
                 try {
                     window.location = option.link;
-                } catch (err) {};
+                } catch (err) {}
             }
-
         };
         setTimeout(function() {
             body.style.display = 'block';
         }, 300);
     }
-
 
     /** 数据填充
    getTmpInfo({

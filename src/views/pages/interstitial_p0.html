@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <title></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-    <meta name="renderer" content="webkit">
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover" />
+    <meta name="renderer" content="webkit" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- 兼容旧手机 -->
-    <meta name="HandheldFriendly" content="true">
+    <meta name="HandheldFriendly" content="true" />
     <!-- 点击无高亮 -->
-    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-tap-highlight" content="no" />
     <!-- iphone隐藏工具菜单栏 -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- 忽视电话识别 -->
@@ -22,33 +22,33 @@
         function setFontSize(designWidth, minWidth, maxWidth) {
             var htmlEl = document.documentElement,
                 momentWith = 0;
-            momentWith =
-                htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
+            momentWith = htmlEl.clientWidth > maxWidth ? maxWidth : htmlEl.clientWidth;
             momentWith = momentWith < minWidth ? minWidth : momentWith;
             htmlEl.style.fontSize = (momentWith / designWidth) * 100 + 'px';
         }
         setFontSize(640, 200, 640);
         window.addEventListener('resize', function() {
             setTimeout(function() {
-                if (document.getElementById("root")) {
+                if (document.getElementById('root')) {
                     if (window.innerWidth > window.innerHeight) {
-                        document.getElementById("root").className = 'root landscape';
+                        document.getElementById('root').className = 'root landscape';
+                        document.getElementById('root2').className = 'root2 landscape';
                     } else {
-                        document.getElementById("root").className = 'root portrait';
-                    };
-
-                };
+                        document.getElementById('root').className = 'root portrait';
+                        document.getElementById('root2').className = 'root2 portrait';
+                    }
+                }
                 setFontSize(640, 200, 640);
-            }, 300)
+            }, 300);
         });
         setTimeout(function() {
             body.style.display = 'block';
-        }, 300)
+        }, 300);
 
         function onClose(event) {
             try {
                 window.location = 'video://close';
-                banBubbles(event)
+                banBubbles(event);
             } catch (err) {}
         }
 
@@ -66,13 +66,12 @@
 </head>
 
 <body>
-
     <div class="root" id="root">
         <div class="root-content">
             <!-- template -->
             <div class="content">
                 <div class="close-box">
-                    <img class="close-btn" onclick="onClose(event)" src="http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/close.png.png" alt="">
+                    <img class="close-btn" onclick="onClose(event)" src="http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/close.png.png" alt="" />
                 </div>
                 <div class="base-Box" id="content">
                     <!-- <img src="http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/bgs.png.png" style="z-index:0;position:absolute;width: 100%;height: 100%; left: 0;top:0;" alt=""> -->
@@ -81,9 +80,7 @@
                         />
                         <div class="title" id="title"></div>
                     </div>
-                    <div class="desc" id="desc">
-
-                    </div>
+                    <div class="desc" id="desc"></div>
                     <div class="go g" id="go"></div>
                     <img class="litter-icon" src="data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAABYdJREFUWAnN
             WV0s5FcUN2YwZhgf42MxRgmWiFrN2CBBSSuo+oiV6HrQhIjPxKt4kAgRiQeJByTSB8X6CI3IPpVs
@@ -111,71 +108,122 @@
             3I7h4eGfkjafGmN3+J5H0tLSXvEBCWsaUaOYgrFaGwRQS0tLGOaOSJuthmfRAWykBpIYy5YxO5sM
             1a9DoPjrg83ZOtCIDo7wZ4jd5RicQQghMxqNevAnTzDtA+PHkO75rbe3d4sOfykQfNgjtKNIQUA2
             5fH57HLDOZj3/4MEcx+hgb8+mLn/N9zAHuLk5xsDapMU5B/sD2L/AjqE2e99q113AAAAAElFTkSu
-            QmCC" alt="">
-
+            QmCC" alt="" />
                 </div>
             </div>
             <!-- template -->
         </div>
     </div>
+    <!-- TODO -->
+    <div class="root2" id="root2">
+        <div class="root-content2" id="content2">
+            <div class="header-box">
+                <div class="center-wrap">
+                    <img id="icon2" class="icon" />
+                    <span class="title2" id="title2"></span>
+                </div>
+            </div>
+            <div class="img-body">
+                <img id="imgUrl" />
+            </div>
+            <div class="desc2" id="desc2"></div>
+            <img class="close-btn" onclick="onClose(event)" src="http://zhizh-front.oss-cn-shenzhen.aliyuncs.com/2/20191203/close.png.png" alt="" />
+        </div>
+    </div>
     <script>
         function getTmpInfo(option) {
-
             var body = document.body || document.documentElement;
-            body.style.display = 'none';
-
-            document.getElementById('title').innerText = option.title;
-            document.getElementById('desc').innerText = option.desc;
-            var icon = document.createElement('img');
-            var iconUrl = option.icon;
-            if (iconUrl) {
-                icon.src = iconUrl;
-                icon.onload = function() {
-                    document.getElementById('icon').src = iconUrl;
+            if (option.pkgName && option.pkgName.length) {
+                var root2 = document.getElementById('root2');
+                root2.style.display = 'block';
+                if (option.device == 'landscape') {
+                    root2.className = 'root2 landscape';
+                } else {
+                    root2.className = 'root2 portrait';
+                }
+                var icon2 = document.createElement('img');
+                icon2.src = option.icon;
+                icon2.onload = function() {
+                    document.getElementById('icon2').src = option.icon;
                 };
-            };
-            var dom = document.getElementById("go");
-            var className = "go g";
-
-            setTimeout(function() {
-                body.style.display = 'block';
-            }, 300);
-            if (option.type == undefined) return;
-            dom.className = className + option.type;
-            var root = document.getElementById("root");
-            if (option.device == 'landscape') {
-                root.className = "root landscape"
+                var title2 = document.getElementById('title2');
+                title2.innerText = option.title;
+                var img = document.createElement('img');
+                img.src = option.imgUrl;
+                img.onload = function() {
+                    document.getElementById('imgUrl').src = option.imgUrl;
+                };
+                document.getElementById('desc2').innerText = option.desc;
+                if (option.clickType == 3) {
+                    root2.onclick = function(event) {
+                        try {
+                            window.location = option.link;
+                        } catch (err) {}
+                    };
+                } else if (option.clickType == 1) {
+                    document.getElementById('content2').onclick = function(event) {
+                        try {
+                            window.location = option.link;
+                        } catch (err) {}
+                    };
+                }
             } else {
-                root.className = "root portrait"
+                body.style.display = 'none';
+                document.getElementById('title').innerText = option.title;
+                document.getElementById('desc').innerText = option.desc;
+                var icon = document.createElement('img');
+                var iconUrl = option.icon;
+                if (iconUrl) {
+                    icon.src = iconUrl;
+                    icon.onload = function() {
+                        document.getElementById('icon').src = iconUrl;
+                    };
+                }
+                var dom = document.getElementById('go');
+                var className = 'go g';
+                setTimeout(function() {
+                    body.style.display = 'block';
+                }, 300);
+                if (option.type == undefined) return;
+                dom.className = className + option.type;
+                var root = document.getElementById('root');
+
+                root.style.display = 'block';
+                if (option.device == 'landscape') {
+                    root.className = 'root landscape';
+                } else {
+                    root.className = 'root portrait';
+                }
+                var content = document.getElementById('content');
+                if (option.clickType == 3) {
+                    root.onclick = function(event) {
+                        try {
+                            window.location = option.link;
+                        } catch (err) {}
+                    };
+                } else if (option.clickType == 1) {
+                    content.onclick = function(event) {
+                        try {
+                            window.location = option.link;
+                        } catch (err) {}
+                    };
+                } else if (option.clickType == 2) {
+                    dom.onclick = function(event) {
+                        try {
+                            window.location = option.link;
+                            event.stopPropagation();
+                        } catch (err) {}
+                    };
+                }
             }
-            var content = document.getElementById('content');
-            if (option.clickType == 3) {
-                root.onclick = function(event) {
-                    try {
-                        window.location = option.link;
-                    } catch (err) {};
-                };
-            } else if (option.clickType == 1) {
-                content.onclick = function(event) {
-                    try {
-                        window.location = option.link;
-                    } catch (err) {};
-                };
-            } else if (option.clickType == 2) {
-                dom.onclick = function(event) {
-                    try {
-                        window.location = option.link;
-                        event.stopPropagation();
-                    } catch (err) {};
-                };
-            }
+        }
 
-        };
-
-
-        /** 根据类型切换 0:立即下载 1:马上安装 2:立即查看 3： 更新
+        /** 
+        注： 参数pkgName 有传值 更换模板，type 类型失效，clickType不支持按钮点击
+        根据类型切换 0:立即下载 1:马上安装 2:立即查看 3： 更新
            getTmpInfo({
             clickType: 1, // 1 全局可点， 2按钮可点 3全屏可点
+            pkgName: '包名',
             device: "landscape", // landscape || portrait
             icon: 'https://android-artworks.25pp.com/fs08/2019/11/06/9/106_e640ac761d50f1c5fe86314ef348700e_con_130x130.png',
             title: '标题',
@@ -183,6 +231,7 @@
             type: 1,
             link: '跳转链接'
         })
+         
 
         */
     </script>
